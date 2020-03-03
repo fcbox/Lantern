@@ -105,6 +105,7 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     
     deinit {
         LanternLog.high("deinit - \(self.classForCoder)")
+        navigationController?.delegate = previousNavigationControllerDelegate
     }
     
     /// 显示图片浏览器

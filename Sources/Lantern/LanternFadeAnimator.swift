@@ -14,6 +14,8 @@ open class LanternFadeAnimator: NSObject, LanternAnimatedTransitioning {
     
     open var dismissDuration: TimeInterval = 0.25
     
+    open var isNavigationAnimation: Bool = false
+
     public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return isForShow ? showDuration : dismissDuration
     }
@@ -28,6 +30,12 @@ open class LanternFadeAnimator: NSObject, LanternAnimatedTransitioning {
             browser.browserView.alpha = 0
             if let toView = transitionContext.view(forKey: .to) {
                 transitionContext.containerView.addSubview(toView)
+            }
+        } else {
+            if isNavigationAnimation,
+                let fromView = transitionContext.view(forKey: .from),
+                let toView = transitionContext.view(forKey: .to) {
+                transitionContext.containerView.insertSubview(toView, belowSubview: fromView)
             }
         }
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {

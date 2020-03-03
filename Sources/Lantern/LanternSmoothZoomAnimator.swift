@@ -109,7 +109,7 @@ open class LanternSmoothZoomAnimator: NSObject, LanternAnimatedTransitioning {
             return nil
         }
         let showContentView = cell.showContentView
-        let destinationFrame = showContentView.convert(showContentView.bounds, to: destinationView)
+        let destinationFrame = showContentView.convert(showContentView.frame, to: destinationView)
         return (transitionContext.transitionView, transitionContext.thumbnailFrame, destinationFrame)
     }
 }
