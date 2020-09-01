@@ -31,7 +31,7 @@ extension LanternAnimatedTransitioning {
         }
     }
     
-    public var lantern: Lantern? {
+    public weak var lantern: Lantern? {
         get {
             objc_getAssociatedObject(self, &lanternKey) as? Lantern
         }

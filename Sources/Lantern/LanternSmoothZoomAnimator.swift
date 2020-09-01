@@ -21,7 +21,7 @@ open class LanternSmoothZoomAnimator: NSObject, LanternAnimatedTransitioning {
     public typealias TransitionViewAndFrameProvider = (_ index: Int, _ destinationView: UIView) -> TransitionViewAndFrame?
     
     /// 获取转场缩放的视图与前置Frame
-    open var transitionViewAndFrameProvider: TransitionViewAndFrameProvider = { _, _ in nil }
+    open var transitionViewAndFrameProvider: TransitionViewAndFrameProvider = { _, _ in return nil }
     
     /// 替补的动画方案
     open lazy var substituteAnimator: LanternAnimatedTransitioning = LanternFadeAnimator()
@@ -43,18 +43,23 @@ open class LanternSmoothZoomAnimator: NSObject, LanternAnimatedTransitioning {
     }
     
     private func playShowAnimation(context: UIViewControllerContextTransitioning) {
-        guard let browser = lantern, let toView = context.view(forKey: .to) else {
+        guard let browser = lantern else {
+            context.completeTransition(!context.transitionWasCancelled)
             return
         }
-        if isNavigationAnimation, let fromView = context.view(forKey: .from), let fromViewSnapshot = snapshot(with: fromView) {
+        if isNavigationAnimation,
+            let fromView = context.view(forKey: .from),
+            let fromViewSnapshot = snapshot(with: fromView),
+            let toView = context.view(forKey: .to)  {
             toView.insertSubview(fromViewSnapshot, at: 0)
         }
-        context.containerView.addSubview(toView)
+        context.containerView.addSubview(browser.view)
         
         guard let (transitionView, thumbnailFrame, destinationFrame) = transitionViewAndFrames(with: browser) else {
             // 转为执行替补动画
             substituteAnimator.isForShow = isForShow
             substituteAnimator.lantern = lantern
+            substituteAnimator.isNavigationAnimation = isNavigationAnimation
             substituteAnimator.animateTransition(using: context)
             return
         }
@@ -67,7 +72,7 @@ open class LanternSmoothZoomAnimator: NSObject, LanternAnimatedTransitioning {
             transitionView.frame = destinationFrame
         }) { _ in
             browser.browserView.isHidden = false
-            toView.insertSubview(browser.maskView, belowSubview: browser.browserView)
+            browser.view.insertSubview(browser.maskView, belowSubview: browser.browserView)
             transitionView.removeFromSuperview()
             context.completeTransition(!context.transitionWasCancelled)
         }
@@ -81,6 +86,7 @@ open class LanternSmoothZoomAnimator: NSObject, LanternAnimatedTransitioning {
             // 转为执行替补动画
             substituteAnimator.isForShow = isForShow
             substituteAnimator.lantern = lantern
+            substituteAnimator.isNavigationAnimation = isNavigationAnimation
             substituteAnimator.animateTransition(using: context)
             return
         }
@@ -109,7 +115,7 @@ open class LanternSmoothZoomAnimator: NSObject, LanternAnimatedTransitioning {
             return nil
         }
         let showContentView = cell.showContentView
-        let destinationFrame = showContentView.convert(showContentView.frame, to: destinationView)
+        let destinationFrame = showContentView.convert(showContentView.bounds, to: destinationView)
         return (transitionContext.transitionView, transitionContext.thumbnailFrame, destinationFrame)
     }
 }

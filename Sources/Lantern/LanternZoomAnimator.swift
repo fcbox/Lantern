@@ -42,18 +42,23 @@ open class LanternZoomAnimator: NSObject, LanternAnimatedTransitioning {
     }
     
     private func playShowAnimation(context: UIViewControllerContextTransitioning) {
-        guard let browser = lantern, let toView = context.view(forKey: .to) else {
+        guard let browser = lantern else {
+            context.completeTransition(!context.transitionWasCancelled)
             return
         }
-        if isNavigationAnimation, let fromView = context.view(forKey: .from), let fromViewSnapshot = snapshot(with: fromView) {
+        if isNavigationAnimation,
+            let fromView = context.view(forKey: .from),
+            let fromViewSnapshot = snapshot(with: fromView),
+            let toView = context.view(forKey: .to)  {
             toView.insertSubview(fromViewSnapshot, at: 0)
         }
-        context.containerView.addSubview(toView)
+        context.containerView.addSubview(browser.view)
         
         guard let (snap1, snap2, thumbnailFrame, destinationFrame) = snapshotsAndFrames(browser: browser) else {
             // 转为执行替补动画
             substituteAnimator.isForShow = isForShow
             substituteAnimator.lantern = lantern
+            substituteAnimator.isNavigationAnimation = isNavigationAnimation
             substituteAnimator.animateTransition(using: context)
             return
         }
@@ -72,7 +77,7 @@ open class LanternZoomAnimator: NSObject, LanternAnimatedTransitioning {
             snap2.alpha = 1.0
         }) { _ in
             browser.browserView.isHidden = false
-            toView.insertSubview(browser.maskView, belowSubview: browser.browserView)
+            browser.view.insertSubview(browser.maskView, belowSubview: browser.browserView)
             snap1.removeFromSuperview()
             snap2.removeFromSuperview()
             context.completeTransition(!context.transitionWasCancelled)
@@ -87,6 +92,7 @@ open class LanternZoomAnimator: NSObject, LanternAnimatedTransitioning {
             // 转为执行替补动画
             substituteAnimator.isForShow = isForShow
             substituteAnimator.lantern = lantern
+            substituteAnimator.isNavigationAnimation = isNavigationAnimation
             substituteAnimator.animateTransition(using: context)
             return
         }
