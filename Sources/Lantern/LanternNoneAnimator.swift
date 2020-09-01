@@ -8,22 +8,12 @@
 
 import UIKit
 
-open class LanternNoneAnimator: NSObject, LanternAnimatedTransitioning {
+/// 使用本类以实现不出现转场动画的需求
+open class LanternNoneAnimator: LanternFadeAnimator {
     
-    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        0
-    }
-    
-    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        transitionContext.completeTransition(transitionContext.transitionWasCancelled)
-    }
-    
-    
-    open func show(browser: Lantern, completion: @escaping () -> Void) {
-        completion()
-    }
-    
-    open func dismiss(browser: Lantern, completion: @escaping () -> Void) {
-        completion()
+    public override init() {
+        super.init()
+        showDuration = 0
+        dismissDuration = 0
     }
 }
