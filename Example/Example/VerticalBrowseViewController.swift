@@ -28,7 +28,9 @@ class VerticalBrowseViewController: BaseCollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.jx.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
-        cell.backgroundColor = .red
+        if let url = Bundle.main.url(forResource: self.dataSource[indexPath.item].localName, withExtension: "MP4") {
+            cell.imageView.image = self.getVideoCropPicture(videoUrl: url)
+        }
         return cell
     }
     
@@ -65,5 +67,17 @@ class VerticalBrowseViewController: BaseCollectionViewController {
         })
         lantern.pageIndex = indexPath.item
         lantern.show()
+    }
+    // MARK: 获取视频预览图
+    fileprivate func getVideoCropPicture(videoUrl: URL) -> UIImage? {
+        let avAsset = AVURLAsset(url: videoUrl)
+        let generator = AVAssetImageGenerator(asset: avAsset)
+        generator.appliesPreferredTrackTransform = true
+        let time = CMTimeMakeWithSeconds(0.0, preferredTimescale: 600)
+        var actualTime: CMTime = CMTimeMake(value: 0, timescale: 0)
+        if let imageP = try? generator.copyCGImage(at: time, actualTime: &actualTime) {
+            return UIImage(cgImage: imageP)
+        }
+        return nil
     }
 }
