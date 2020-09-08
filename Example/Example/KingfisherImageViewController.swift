@@ -45,11 +45,11 @@ class KingfisherImageViewController: BaseCollectionViewController {
                 lanternCell?.setNeedsLayout()
             })
         }
-        lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
-            let path = IndexPath(item: index, section: indexPath.section)
-            let cell = collectionView.cellForItem(at: path) as? BaseCollectionViewCell
-            return cell?.imageView
-        })
+//        lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
+//            let path = IndexPath(item: index, section: indexPath.section)
+//            let cell = collectionView.cellForItem(at: path) as? BaseCollectionViewCell
+//            return cell?.imageView
+//        })
         lantern.pageIndex = indexPath.item
         lantern.show()
     }
