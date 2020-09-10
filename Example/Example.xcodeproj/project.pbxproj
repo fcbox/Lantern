@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DB2CD06250A191D00B0E92F /* CustomAnimatedTranstioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */; };
 		940855D523A372830035DE67 /* video_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D223A372820035DE67 /* video_2.MP4 */; };
 		940855D623A372830035DE67 /* video_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D323A372830035DE67 /* video_1.MP4 */; };
 		940855D723A372830035DE67 /* video_0.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D423A372830035DE67 /* video_0.MP4 */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimatedTranstioning.swift; sourceTree = "<group>"; };
 		940855D223A372820035DE67 /* video_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_2.MP4; sourceTree = "<group>"; };
 		940855D323A372830035DE67 /* video_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_1.MP4; sourceTree = "<group>"; };
 		940855D423A372830035DE67 /* video_0.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_0.MP4; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				949C25DB2390FC9F00CD654B /* LoadingProgressViewController.swift */,
 				94A02D3F23992668007E5DCE /* LanternProgressView.swift */,
 				949C25D92390FC8900CD654B /* RawImageViewController.swift */,
+				2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */,
 				949C25DD2390FCC000CD654B /* GIFViewController.swift */,
 				940B2983238FC4FD00DC5F6F /* DataSourceDeleteViewController.swift */,
 				949C25D32390FB4C00CD654B /* DataSourceAppendViewController.swift */,
@@ -326,6 +329,7 @@
 				940B2962238D128200DC5F6F /* BaseCollectionViewController.swift in Sources */,
 				940B2972238D20A800DC5F6F /* MoreDetailViewController.swift in Sources */,
 				940B2963238D128200DC5F6F /* BaseCollectionViewCell.swift in Sources */,
+				2DB2CD06250A191D00B0E92F /* CustomAnimatedTranstioning.swift in Sources */,
 				949C25D42390FB4C00CD654B /* DataSourceAppendViewController.swift in Sources */,
 				94A02D4023992669007E5DCE /* LanternProgressView.swift in Sources */,
 				940B297E238FA9C800DC5F6F /* LocalImageSmoothZoomViewController.swift in Sources */,
