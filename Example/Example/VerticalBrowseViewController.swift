@@ -30,6 +30,7 @@ class VerticalBrowseViewController: BaseCollectionViewController {
         let cell = collectionView.jx.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
         if let url = Bundle.main.url(forResource: self.dataSource[indexPath.item].localName, withExtension: "MP4") {
             cell.imageView.image = self.getVideoCropPicture(videoUrl: url)
+            cell.playButtonView.isHidden = false
         }
         return cell
     }

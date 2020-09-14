@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D7FB5EA250F79DD0071AF3B /* VideoZoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB5E9250F79DD0071AF3B /* VideoZoomCell.swift */; };
 		2DB2CD06250A191D00B0E92F /* CustomAnimatedTranstioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */; };
 		940855D523A372830035DE67 /* video_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D223A372820035DE67 /* video_2.MP4 */; };
 		940855D623A372830035DE67 /* video_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D323A372830035DE67 /* video_1.MP4 */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D7FB5E9250F79DD0071AF3B /* VideoZoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoZoomCell.swift; sourceTree = "<group>"; };
 		2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimatedTranstioning.swift; sourceTree = "<group>"; };
 		940855D223A372820035DE67 /* video_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_2.MP4; sourceTree = "<group>"; };
 		940855D323A372830035DE67 /* video_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_1.MP4; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				94BB36AD239A7D3B00B70F6A /* MultipleSectionViewController.swift */,
 				949C25E12390FCF900CD654B /* VideoPhotoViewController.swift */,
 				940855D823A386CE0035DE67 /* VideoCell.swift */,
+				2D7FB5E9250F79DD0071AF3B /* VideoZoomCell.swift */,
 				9408566623A395720035DE67 /* VerticalBrowseViewController.swift */,
 				9459A76923A75A3700521385 /* DefaultPageIndicatorViewController.swift */,
 				9459A76B23A75E3900521385 /* NumberPageIndicatorViewController.swift */,
@@ -326,6 +329,7 @@
 				940B2968238D128200DC5F6F /* UICollectionView+JX.swift in Sources */,
 				940B2966238D128200DC5F6F /* UITableView+JX.swift in Sources */,
 				949C25E22390FCF900CD654B /* VideoPhotoViewController.swift in Sources */,
+				2D7FB5EA250F79DD0071AF3B /* VideoZoomCell.swift in Sources */,
 				940B2962238D128200DC5F6F /* BaseCollectionViewController.swift in Sources */,
 				940B2972238D20A800DC5F6F /* MoreDetailViewController.swift in Sources */,
 				940B2963238D128200DC5F6F /* BaseCollectionViewCell.swift in Sources */,

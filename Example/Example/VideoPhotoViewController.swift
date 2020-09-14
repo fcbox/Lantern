@@ -31,6 +31,7 @@ class VideoPhotoViewController: BaseCollectionViewController {
         if indexPath.item % 2 == 0 {
             if let url = Bundle.main.url(forResource: self.dataSource[indexPath.item].localName, withExtension: "MP4") {
                 cell.imageView.image = self.getVideoCropPicture(videoUrl: url)
+                cell.playButtonView.isHidden = false
             }
         } else {
             cell.imageView.image = self.dataSource[indexPath.item].localName.flatMap { UIImage(named: $0) }
@@ -45,14 +46,15 @@ class VideoPhotoViewController: BaseCollectionViewController {
             self.dataSource.count
         }
         lantern.cellClassAtIndex = { index in
-            index % 2 == 0 ? VideoCell.self : LanternImageCell.self
+            index % 2 == 0 ? VideoZoomCell.self : LanternImageCell.self
         }
         lantern.reloadCellAtIndex = { context in
             LanternLog.high("reload cell!")
             let resourceName = self.dataSource[context.index].localName!
             if context.index % 2 == 0 {
-                let lanternCell = context.cell as? VideoCell
+                let lanternCell = context.cell as? VideoZoomCell
                 if let url = Bundle.main.url(forResource: resourceName, withExtension: "MP4") {
+                    lanternCell?.imageView.image = self.getVideoCropPicture(videoUrl: url)
                     lanternCell?.player.replaceCurrentItem(with: AVPlayerItem(url: url))
                 }
             } else {
@@ -63,13 +65,13 @@ class VideoPhotoViewController: BaseCollectionViewController {
         lantern.cellWillAppear = { cell, index in
             if index % 2 == 0 {
                 LanternLog.high("开始播放")
-                (cell as? VideoCell)?.player.play()
+                (cell as? VideoZoomCell)?.player.play()
             }
         }
         lantern.cellWillDisappear = { cell, index in
             if index % 2 == 0 {
                 LanternLog.high("暂停播放")
-                (cell as? VideoCell)?.player.pause()
+                (cell as? VideoZoomCell)?.player.pause()
             }
         }
         lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
