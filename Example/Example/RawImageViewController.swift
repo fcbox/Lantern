@@ -12,9 +12,9 @@ import SDWebImage
 
 class RawImageViewController: BaseCollectionViewController {
     
-    override var name: String { "自定义cell显示查看原图" }
+    override var name: String { "自定义cell和自定义转场动画" }
     
-    override var remark: String { "举例如何实现查看原图+自定义的转场动画" }
+    override var remark: String { "举例如何实现查看原图" }
     
     override func makeDataSource() -> [ResourceModel] {
         let models = makeNetworkDataSource()

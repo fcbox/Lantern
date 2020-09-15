@@ -12,19 +12,19 @@ import Lantern
 /// 自定义转场动画
 class CustomAnimatedTranstioning: NSObject, LanternAnimatedTransitioning {
     
-    open var showDuration: TimeInterval = 0.25
+    var showDuration: TimeInterval = 0.25
     
-    open var dismissDuration: TimeInterval = 0.25
+    var dismissDuration: TimeInterval = 0.25
     
-    open var isNavigationAnimation = false
+    var isNavigationAnimation = false
     
-    public typealias PreviousViewAtIndexClosure = (_ index: Int) -> UIView?
+    typealias PreviousViewAtIndexClosure = (_ index: Int) -> UIView?
     
     /// 转场动画的前向视图
-    open var previousViewProvider: PreviousViewAtIndexClosure = { _ in nil }
+    var previousViewProvider: PreviousViewAtIndexClosure = { _ in nil }
     
     /// 替补的动画方案
-    open lazy var substituteAnimator: LanternAnimatedTransitioning = LanternFadeAnimator()
+    lazy var substituteAnimator: LanternAnimatedTransitioning = LanternFadeAnimator()
     
     public init(previousView: @escaping PreviousViewAtIndexClosure) {
         previousViewProvider = previousView
