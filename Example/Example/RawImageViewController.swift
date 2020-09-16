@@ -12,7 +12,7 @@ import SDWebImage
 
 class RawImageViewController: BaseCollectionViewController {
     
-    override var name: String { "显示查看原图" }
+    override var name: String { "自定义cell和自定义转场动画" }
     
     override var remark: String { "举例如何实现查看原图" }
     
@@ -49,7 +49,8 @@ class RawImageViewController: BaseCollectionViewController {
             let rawURLString = self.dataSource[context.index].thirdLevelUrl
             lanternCell?.reloadData(placeholder: placeholder, urlString: urlString, rawURLString: rawURLString)
         }
-        lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
+        // 使用自定义的转场动画
+        lantern.transitionAnimator = CustomAnimatedTranstioning(previousView: { index -> UIView? in
             let path = IndexPath(item: index, section: indexPath.section)
             let cell = collectionView.cellForItem(at: path) as? BaseCollectionViewCell
             return cell?.imageView

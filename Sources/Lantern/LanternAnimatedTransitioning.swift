@@ -14,8 +14,8 @@ public protocol LanternAnimatedTransitioning: UIViewControllerAnimatedTransition
     var isNavigationAnimation: Bool { get set }
 }
 
-private var isForShowKey: Int8?
-private var lanternKey: Int8?
+private var isForShowKey = "isForShowKey"
+private var lanternKey = "lanternKey"
 
 extension LanternAnimatedTransitioning {
     
@@ -31,7 +31,7 @@ extension LanternAnimatedTransitioning {
         }
     }
     
-    public var lantern: Lantern? {
+    public weak var lantern: Lantern? {
         get {
             objc_getAssociatedObject(self, &lanternKey) as? Lantern
         }
