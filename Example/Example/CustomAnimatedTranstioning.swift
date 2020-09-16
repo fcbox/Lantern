@@ -1,29 +1,30 @@
 //
-//  LanternZoomAnimator.swift
-//  Lantern
+//  CustomAnimatedTranstioning.swift
+//  Example
 //
-//  Created by JiongXing on 2019/11/26.
-//  Copyright © 2019 FengChao. All rights reserved.
+//  Created by 肖志斌 on 2020/9/10.
+//  Copyright © 2020 JiongXing. All rights reserved.
 //
 
 import UIKit
+import Lantern
 
-/// Zoom动画
-open class LanternZoomAnimator: NSObject, LanternAnimatedTransitioning {
+/// 自定义转场动画
+class CustomAnimatedTranstioning: NSObject, LanternAnimatedTransitioning {
     
-    open var showDuration: TimeInterval = 0.25
+    var showDuration: TimeInterval = 0.25
     
-    open var dismissDuration: TimeInterval = 0.25
+    var dismissDuration: TimeInterval = 0.25
     
-    open var isNavigationAnimation = false
+    var isNavigationAnimation = false
     
-    public typealias PreviousViewAtIndexClosure = (_ index: Int) -> UIView?
+    typealias PreviousViewAtIndexClosure = (_ index: Int) -> UIView?
     
     /// 转场动画的前向视图
-    open var previousViewProvider: PreviousViewAtIndexClosure = { _ in nil }
+    var previousViewProvider: PreviousViewAtIndexClosure = { _ in nil }
     
     /// 替补的动画方案
-    open lazy var substituteAnimator: LanternAnimatedTransitioning = LanternFadeAnimator()
+    lazy var substituteAnimator: LanternAnimatedTransitioning = LanternFadeAnimator()
     
     public init(previousView: @escaping PreviousViewAtIndexClosure) {
         previousViewProvider = previousView
@@ -69,19 +70,27 @@ open class LanternZoomAnimator: NSObject, LanternAnimatedTransitioning {
         browser.browserView.isHidden = true
         context.containerView.addSubview(snap1)
         context.containerView.addSubview(snap2)
-        UIView.animate(withDuration: showDuration, animations: {
-            browser.maskView.alpha = 1.0
-            snap1.frame = destinationFrame
-            snap1.alpha = 0
-            snap2.frame = destinationFrame
-            snap2.alpha = 1.0
-        }) { _ in
-            browser.browserView.isHidden = false
-            browser.view.insertSubview(browser.maskView, belowSubview: browser.browserView)
-            snap1.removeFromSuperview()
-            snap2.removeFromSuperview()
-            context.completeTransition(!context.transitionWasCancelled)
-        }
+        
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0,
+            usingSpringWithDamping: 0.8,
+            initialSpringVelocity: 0,
+            options: UIView.AnimationOptions(),
+            animations: {
+                browser.maskView.alpha = 1.0
+                snap1.frame = destinationFrame
+                snap1.alpha = 0
+                snap2.frame = destinationFrame
+                snap2.alpha = 1.0
+            },
+            completion: { (_) -> Void in
+               browser.browserView.isHidden = false
+               browser.view.insertSubview(browser.maskView, belowSubview: browser.browserView)
+               snap1.removeFromSuperview()
+               snap2.removeFromSuperview()
+               context.completeTransition(!context.transitionWasCancelled)
+         })
     }
     
     private func playDismissAnimation(context: UIViewControllerContextTransitioning) {
@@ -102,20 +111,28 @@ open class LanternZoomAnimator: NSObject, LanternAnimatedTransitioning {
         context.containerView.addSubview(snap1)
         context.containerView.addSubview(snap2)
         browser.browserView.isHidden = true
-        UIView.animate(withDuration: showDuration, animations: {
-            browser.maskView.alpha = 0
-            snap1.frame = thumbnailFrame
-            snap1.alpha = 0
-            snap2.frame = thumbnailFrame
-            snap2.alpha = 1.0
-        }) { _ in
-            if let toView = context.view(forKey: .to) {
-                context.containerView.addSubview(toView)
-            }
-            snap1.removeFromSuperview()
-            snap2.removeFromSuperview()
-            context.completeTransition(!context.transitionWasCancelled)
-        }
+        
+        UIView.animate(
+           withDuration: 0.5,
+           delay: 0,
+           usingSpringWithDamping: 0.8,
+           initialSpringVelocity: 0,
+           options: UIView.AnimationOptions(),
+           animations: {
+               browser.maskView.alpha = 0
+               snap1.frame = thumbnailFrame
+               snap1.alpha = 0
+               snap2.frame = thumbnailFrame
+               snap2.alpha = 1.0
+           },
+           completion: { (_) -> Void in
+              if let toView = context.view(forKey: .to) {
+                  context.containerView.addSubview(toView)
+              }
+              snap1.removeFromSuperview()
+              snap2.removeFromSuperview()
+              context.completeTransition(!context.transitionWasCancelled)
+        })
     }
     
     private func snapshotsAndFrames(browser: Lantern) -> (UIView, UIView, CGRect, CGRect)? {

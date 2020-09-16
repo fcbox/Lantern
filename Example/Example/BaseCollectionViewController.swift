@@ -41,22 +41,22 @@ class BaseCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = name
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = .black
         collectionView?.jx.registerCell(BaseCollectionViewCell.self)
         dataSource = makeDataSource()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let insetValue: CGFloat = 30
+        let insetValue: CGFloat = 15
         let totalWidth: CGFloat = view.bounds.width - insetValue * 2
-        let colCount = 3
-        let spacing: CGFloat = 10.0
+        let colCount = 2
+        let spacing: CGFloat = 8.0
         let sideLength: CGFloat = (totalWidth - 2 * spacing) / CGFloat(colCount)
         
         flowLayout.minimumLineSpacing = spacing
         flowLayout.minimumInteritemSpacing = spacing
-        flowLayout.itemSize = CGSize(width: sideLength, height: sideLength)
+        flowLayout.itemSize = CGSize(width: sideLength, height: 200)
         flowLayout.sectionInset = UIEdgeInsets.init(top: insetValue, left: insetValue, bottom: insetValue, right: insetValue)
     }
     
