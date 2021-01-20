@@ -139,6 +139,9 @@ open class LanternView: UIView, UIScrollViewDelegate {
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         // 屏幕旋转时会触发本方法。此时不可更改pageIndex
         if isRotating {
+            resetCells()
+            layoutCells()
+            reloadItems()
             isRotating = false
             return
         }
