@@ -108,6 +108,10 @@ class VideoZoomCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, 
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
         imageView.center = computeImageLayoutCenter(in: scrollView)
+        // 判断当前scrollView的缩放状态，如果是1.0，重置scrollView的contentOffset, 否则无法触发下滑手势
+        if scrollView.zoomScale == 1.0 {
+            scrollView.contentOffset = .zero
+        }
     }
     
     func computeImageLayoutSize(for image: UIImage?, in scrollView: UIScrollView) -> CGSize {
