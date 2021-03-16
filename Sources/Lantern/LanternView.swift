@@ -68,7 +68,10 @@ open class LanternView: UIView, UIScrollViewDelegate {
         }
         return sv
     }()
+    /// 新增更多num之前的数据总量
+    open var lastNumberOfItems: Int = 0
     
+    /// 是否旋转
     var isRotating = false
     
     deinit {
@@ -129,6 +132,10 @@ open class LanternView: UIView, UIScrollViewDelegate {
     
     /// 根据页码更新滑动位置
     open func refreshContentOffset() {
+        // 针对无限新增图片数据，scrollView的contentOffset会偏移问题判断处理
+        if pageIndex == lastNumberOfItems {
+            return
+        }
         if scrollDirection == .horizontal {
             scrollView.contentOffset = CGPoint(x: CGFloat(pageIndex) * scrollView.bounds.width, y: 0)
         } else {

@@ -44,10 +44,11 @@ class DataSourceAppendViewController: BaseCollectionViewController {
         lantern.didChangedPageIndex = { index in
             // 已到最后一张
             if index == self.dataSource.count - 1 {
+                lantern.lastNumberOfItems = index
                 self.appendMoreData(lantern: lantern)
             }
         }
-        lantern.scrollDirection = .vertical
+        lantern.scrollDirection = .horizontal
         lantern.pageIndex = indexPath.item
         lantern.show()
     }
@@ -61,7 +62,6 @@ class DataSourceAppendViewController: BaseCollectionViewController {
             dataSource.append(model)
         }
         collectionView.reloadData()
-        // TODO: UIScrollView的pageEnable特性原因，不能很好衔接，效果上有点问题，还未解决
         lantern.reloadData()
     }
 }
