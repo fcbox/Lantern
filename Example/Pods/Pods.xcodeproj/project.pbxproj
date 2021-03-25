@@ -40,6 +40,7 @@
 		2A367E617985CC6960C616E1A5A4614A /* LanternPageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176ACB08E0A787677D9DEAB71B64FB5C /* LanternPageIndicator.swift */; };
 		2AFC358F70C8A7CCBCF4B7E3951AB88F /* SDAnimatedImagePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99861625F9C28B314DC7B5A3C7DE383F /* SDAnimatedImagePlayer.m */; };
 		2CE3B5EB3E415B5467CC027FC85D9F99 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2102D029A9E2862BACDFB99BDBFDF1 /* Result.swift */; };
+		2D1496EA260C824C000B70EE /* LanternImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1496E9260C824C000B70EE /* LanternImageView.swift */; };
 		2DDABE4EEA63626D9EF3D45D3805F8FF /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AF3394A151A0EC59AC3996F390BE4B9 /* SDWebImageManager.m */; };
 		2F342548A7F562A34B0C5D2506081B1A /* SDFileAttributeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22458DDEEE3384B782834004B1F3F7ED /* SDFileAttributeHelper.m */; };
 		2FFD4ED5452BD4758C944A2F932F9492 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 094F456C4B9E4C448AC3D2B1D4C4FBD6 /* Foundation.framework */; };
@@ -297,6 +298,7 @@
 		2B5C47F5FF459DBDE0369C6359169ABE /* LanternAnimatedTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LanternAnimatedTransitioning.swift; path = Sources/Lantern/LanternAnimatedTransitioning.swift; sourceTree = "<group>"; };
 		2CC280949207D49691BA412BCD0F1028 /* SDImageCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCoder.h; path = SDWebImage/Core/SDImageCoder.h; sourceTree = "<group>"; };
 		2CD4BF60C420D592E49D248D4FB6611F /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageCache.swift; path = Sources/Cache/ImageCache.swift; sourceTree = "<group>"; };
+		2D1496E9260C824C000B70EE /* LanternImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanternImageView.swift; sourceTree = "<group>"; };
 		2FFF8D6C041CA9FACEA5CE0A232EEB40 /* LanternFadeAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LanternFadeAnimator.swift; path = Sources/Lantern/LanternFadeAnimator.swift; sourceTree = "<group>"; };
 		30220D87B6BAA3FB9FBA1A391E8BF63D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		305A89416AF8CD202B5BEB2F3E337AB0 /* NSButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSButton+WebCache.m"; path = "SDWebImage/Core/NSButton+WebCache.m"; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				176ACB08E0A787677D9DEAB71B64FB5C /* LanternPageIndicator.swift */,
 				B1F4D943D1E8379958BE4679CEF6EA95 /* LanternSmoothZoomAnimator.swift */,
 				8F1C29AF41AF71661F243419C9BB6394 /* LanternView.swift */,
+				2D1496E9260C824C000B70EE /* LanternImageView.swift */,
 				C160D4548C7B34438AD22B0B65E2F005 /* LanternZoomAnimator.swift */,
 				CA2C5D2B3D8BCBFC618F72E97E77F914 /* LanternZoomSupportedCell.swift */,
 				3B352F262EC497053B233188D3882D90 /* Pod */,
@@ -1238,6 +1241,7 @@
 				E8F8E67D4846C58E36A94FCEE506F403 /* Lantern-dummy.m in Sources */,
 				1B319B990A0530A3B6167872C77B5678 /* Lantern.swift in Sources */,
 				2873D844D490F41A4B5BEFFC86168652 /* LanternAnimatedTransitioning.swift in Sources */,
+				2D1496EA260C824C000B70EE /* LanternImageView.swift in Sources */,
 				F559821F2A1F030C0E8DC09381D4F4C9 /* LanternCell.swift in Sources */,
 				CB23FD1A90AE02C317CC3D3FF95FDD21 /* LanternDefaultPageIndicator.swift in Sources */,
 				8802DA77C59C1D9689D5E924F8ACE773 /* LanternFadeAnimator.swift in Sources */,

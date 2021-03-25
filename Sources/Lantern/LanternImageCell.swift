@@ -25,9 +25,12 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         }
     }
     
-    open var imageView: UIImageView = {
-        let view = UIImageView()
+    open lazy var imageView: LanternImageView = {
+        let view = LanternImageView()
         view.clipsToBounds = true
+        view.imageDidChangedHandler = { [weak self] in
+            self?.setNeedsLayout()
+        }
         return view
     }()
     

@@ -45,14 +45,8 @@ class GIFViewController: BaseCollectionViewController {
             let collectionPath = IndexPath(item: context.index, section: indexPath.section)
             let collectionCell = collectionView.cellForItem(at: collectionPath) as? BaseCollectionViewCell
             let placeholder = collectionCell?.imageView.image
-            // 用SDWebImage加载
-            lanternCell?.imageView.sd_setImage(with: url, placeholderImage: placeholder, options: [], completed: { (_, _, _, _) in
-                lanternCell?.setNeedsLayout()
-            })
             // Kingfisher
-            /*lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder, options: [], completionHandler: { _ in
-                lanternCell?.setNeedsLayout()
-            })*/
+            lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder)
         }
         lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
             let path = IndexPath(item: index, section: indexPath.section)

@@ -62,9 +62,7 @@ class MultipleSectionViewController: BaseCollectionViewController {
             let lanternCell = context.cell as? LanternImageCell
             if let urlString = model.secondLevelUrl {
                 let url = URL(string: urlString)
-                lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder, options: [], completionHandler: { _ in
-                    lanternCell?.setNeedsLayout()
-                })
+                lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder)
             } else if let localName = model.localName {
                 lanternCell?.imageView.image = UIImage(named: localName)
             }

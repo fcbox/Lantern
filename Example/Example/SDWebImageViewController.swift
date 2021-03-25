@@ -42,9 +42,7 @@ class SDWebImageViewController: BaseCollectionViewController {
             let collectionCell = collectionView.cellForItem(at: collectionPath) as? BaseCollectionViewCell
             let placeholder = collectionCell?.imageView.image
             // 用SDWebImage加载
-            lanternCell?.imageView.sd_setImage(with: url, placeholderImage: placeholder, options: [], completed: { (_, _, _, _) in
-                lanternCell?.setNeedsLayout()
-            })
+            lanternCell?.imageView.sd_setImage(with: url, placeholderImage: placeholder)
         }
         lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
             let path = IndexPath(item: index, section: indexPath.section)
