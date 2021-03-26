@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by JiongXing on 2019/12/6.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Copyright © 2021 丰巢科技. All rights reserved.
 //
 
 import UIKit
@@ -35,7 +35,7 @@ class MultipleSectionViewController: BaseCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.jx.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
+        let cell = collectionView.fc.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
         let model = sections[indexPath.section][indexPath.item]
         if let urlString = model.firstLevelUrl {
             cell.imageView.kf.setImage(with: URL(string: urlString))

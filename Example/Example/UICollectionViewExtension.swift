@@ -1,27 +1,27 @@
 //
-//  UICollectionView+JX.swift
-//  Lantern
+//  UICollectionViewExtension.swift
+//  Example
 //
-//  Created by JiongXing on 2018/10/14.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Created by 肖志斌 on 2021/3/26.
+//  Copyright © 2021 丰巢科技. All rights reserved.
 //
 
 import UIKit
 
-extension UICollectionView: JXNamespaceWrappable {}
+extension UICollectionView: NamespaceWrappable {}
 
-extension JXTypeWrapperProtocol where JXWrappedType == UICollectionView {
+extension TypeWrapperProtocol where WrappedType == UICollectionView {
     
     /// 注册Cell
     public func registerCell<T: UICollectionViewCell>(_ type: T.Type) {
         let identifier = String(describing: type.self)
-        jxWrappedValue.register(type, forCellWithReuseIdentifier: identifier)
+        wrappedValue.register(type, forCellWithReuseIdentifier: identifier)
     }
     
     /// 取重用Cell
     public func dequeueReusableCell<T: UICollectionViewCell>(_ type: T.Type, for indexPath: IndexPath) -> T {
         let identifier = String(describing: type.self)
-        guard let cell = jxWrappedValue.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? T else {
+        guard let cell = wrappedValue.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? T else {
             fatalError("\(type.self) was not registered")
         }
         return cell
