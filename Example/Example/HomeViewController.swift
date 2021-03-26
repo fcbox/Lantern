@@ -35,8 +35,6 @@ class HomeViewController: UITableViewController {
         super.viewWillAppear(animated)
         dataSource = [
             LocalImageViewController(),
-            VerticalBrowseViewController(),
-            VideoPhotoViewController(),
             LocalImageZoomViewController(),
             LocalImageSmoothZoomViewController(),
             CustomViewController(),
@@ -51,6 +49,8 @@ class HomeViewController: UITableViewController {
             MultipleSectionViewController(),
             DefaultPageIndicatorViewController(),
             NumberPageIndicatorViewController(),
+            VerticalBrowseViewController(),
+            VideoPhotoViewController()
         ]
     }
     

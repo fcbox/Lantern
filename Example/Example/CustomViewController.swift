@@ -17,8 +17,14 @@ class CustomViewController: BaseCollectionViewController {
     override var remark: String { "举例如何实现查看原图" }
     
     override func makeDataSource() -> [ResourceModel] {
-        let models = makeNetworkDataSource()
-        models[3].thirdLevelUrl = "https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/rawImage.jpg"
+        let array = ["http://5b0988e595225.cdn.sohucs.com/images/20171202/0c9fe83abea54a4687503da30c4254be.gif",
+                     "https://att.3dmgame.com/att/album/201607/12/172044b6eqtn4zt0i5j1i8.gif",
+                     "http://5b0988e595225.cdn.sohucs.com/images/20180507/87e71c4ea00840daba4737bd8172ed97.gif"]
+        var models = makeNetworkDataSource()
+        models[0].thirdLevelUrl = array[0]
+        models[1].thirdLevelUrl = array[1]
+        models[2].thirdLevelUrl = array[2]
+        models.removeLast()
         return models
     }
     
