@@ -1,8 +1,8 @@
 //
-//  RawImageViewController.swift
+//  CustomViewController.swift
 //  Example
 //
-//  Created by JiongXing on 2019/11/29.
+//  Created by 肖志斌 on 2021/3/26.
 //  Copyright © 2021 丰巢科技. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import Lantern
 import SDWebImage
 
-class RawImageViewController: BaseCollectionViewController {
+class CustomViewController: BaseCollectionViewController {
     
     override var name: String { "自定义cell和自定义转场动画" }
     
