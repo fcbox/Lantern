@@ -39,9 +39,10 @@ class HomeViewController: UITableViewController {
             VideoPhotoViewController(),
             LocalImageZoomViewController(),
             LocalImageSmoothZoomViewController(),
-            RawImageViewController(),
+            CustomViewController(),
             KingfisherImageViewController(),
             SDWebImageViewController(),
+            GIFViewController(),
             DataSourceDeleteViewController(),
             DataSourceAppendViewController(),
             PushNextViewController(),
@@ -50,7 +51,6 @@ class HomeViewController: UITableViewController {
             MultipleSectionViewController(),
             DefaultPageIndicatorViewController(),
             NumberPageIndicatorViewController(),
-            GIFViewController()
         ]
     }
     
