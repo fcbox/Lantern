@@ -3,7 +3,7 @@
 //  Lantern
 //
 //  Created by JiongXing on 2019/11/20.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
 import Foundation

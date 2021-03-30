@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by JiongXing on 2019/11/28.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class LocalImageSmoothZoomViewController: BaseCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.jx.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
+        let cell = collectionView.fc.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
         cell.imageView.image = self.dataSource[indexPath.item].localName.flatMap { UIImage(named: $0) }
         return cell
     }

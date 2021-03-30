@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by JiongXing on 2019/12/6.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
 import UIKit
@@ -35,7 +35,7 @@ class MultipleSectionViewController: BaseCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.jx.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
+        let cell = collectionView.fc.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
         let model = sections[indexPath.section][indexPath.item]
         if let urlString = model.firstLevelUrl {
             cell.imageView.kf.setImage(with: URL(string: urlString))
@@ -62,9 +62,7 @@ class MultipleSectionViewController: BaseCollectionViewController {
             let lanternCell = context.cell as? LanternImageCell
             if let urlString = model.secondLevelUrl {
                 let url = URL(string: urlString)
-                lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder, options: [], completionHandler: { _ in
-                    lanternCell?.setNeedsLayout()
-                })
+                lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder)
             } else if let localName = model.localName {
                 lanternCell?.imageView.image = UIImage(named: localName)
             }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1496F0260DD7FD000B70EE /* NameSpaceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1496EF260DD7FD000B70EE /* NameSpaceWrapper.swift */; };
+		2D1496F3260DD840000B70EE /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1496F2260DD840000B70EE /* UITableViewExtension.swift */; };
+		2D1496F7260DDB0A000B70EE /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1496F6260DDB0A000B70EE /* UICollectionViewExtension.swift */; };
+		2D1496FC260DDE79000B70EE /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1496FB260DDE79000B70EE /* CustomViewController.swift */; };
 		2D7FB5EA250F79DD0071AF3B /* VideoZoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB5E9250F79DD0071AF3B /* VideoZoomCell.swift */; };
 		2DB2CD06250A191D00B0E92F /* CustomAnimatedTranstioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */; };
 		940855D523A372830035DE67 /* video_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D223A372820035DE67 /* video_2.MP4 */; };
@@ -23,10 +27,7 @@
 		940B2962238D128200DC5F6F /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B2959238D128100DC5F6F /* BaseCollectionViewController.swift */; };
 		940B2963238D128200DC5F6F /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B295A238D128200DC5F6F /* BaseCollectionViewCell.swift */; };
 		940B2964238D128200DC5F6F /* Photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 940B295B238D128200DC5F6F /* Photos.plist */; };
-		940B2965238D128200DC5F6F /* JXNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B295C238D128200DC5F6F /* JXNamespace.swift */; };
-		940B2966238D128200DC5F6F /* UITableView+JX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B295D238D128200DC5F6F /* UITableView+JX.swift */; };
 		940B2967238D128200DC5F6F /* LocalImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B295E238D128200DC5F6F /* LocalImageViewController.swift */; };
-		940B2968238D128200DC5F6F /* UICollectionView+JX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B295F238D128200DC5F6F /* UICollectionView+JX.swift */; };
 		940B2969238D128200DC5F6F /* ResourceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B2960238D128200DC5F6F /* ResourceModel.swift */; };
 		940B296C238D1C7800DC5F6F /* MultipleCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B296B238D1C7800DC5F6F /* MultipleCellViewController.swift */; };
 		940B2972238D20A800DC5F6F /* MoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940B2971238D20A800DC5F6F /* MoreDetailViewController.swift */; };
@@ -39,7 +40,6 @@
 		9459A76C23A75E3900521385 /* NumberPageIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9459A76B23A75E3900521385 /* NumberPageIndicatorViewController.swift */; };
 		949C25D42390FB4C00CD654B /* DataSourceAppendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C25D32390FB4C00CD654B /* DataSourceAppendViewController.swift */; };
 		949C25D82390FB9E00CD654B /* PushNextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C25D72390FB9E00CD654B /* PushNextViewController.swift */; };
-		949C25DA2390FC8900CD654B /* RawImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C25D92390FC8900CD654B /* RawImageViewController.swift */; };
 		949C25DC2390FC9F00CD654B /* LoadingProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C25DB2390FC9F00CD654B /* LoadingProgressViewController.swift */; };
 		949C25DE2390FCC000CD654B /* GIFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C25DD2390FCC000CD654B /* GIFViewController.swift */; };
 		949C25E22390FCF900CD654B /* VideoPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949C25E12390FCF900CD654B /* VideoPhotoViewController.swift */; };
@@ -49,6 +49,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D1496EF260DD7FD000B70EE /* NameSpaceWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSpaceWrapper.swift; sourceTree = "<group>"; };
+		2D1496F2260DD840000B70EE /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
+		2D1496F6260DDB0A000B70EE /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtension.swift; sourceTree = "<group>"; };
+		2D1496FB260DDE79000B70EE /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		2D7FB5E9250F79DD0071AF3B /* VideoZoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoZoomCell.swift; sourceTree = "<group>"; };
 		2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimatedTranstioning.swift; sourceTree = "<group>"; };
 		940855D223A372820035DE67 /* video_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_2.MP4; sourceTree = "<group>"; };
@@ -67,10 +71,7 @@
 		940B2959238D128100DC5F6F /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
 		940B295A238D128200DC5F6F /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		940B295B238D128200DC5F6F /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Photos.plist; sourceTree = "<group>"; };
-		940B295C238D128200DC5F6F /* JXNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JXNamespace.swift; sourceTree = "<group>"; };
-		940B295D238D128200DC5F6F /* UITableView+JX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+JX.swift"; sourceTree = "<group>"; };
 		940B295E238D128200DC5F6F /* LocalImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalImageViewController.swift; sourceTree = "<group>"; };
-		940B295F238D128200DC5F6F /* UICollectionView+JX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+JX.swift"; sourceTree = "<group>"; };
 		940B2960238D128200DC5F6F /* ResourceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceModel.swift; sourceTree = "<group>"; };
 		940B296B238D1C7800DC5F6F /* MultipleCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleCellViewController.swift; sourceTree = "<group>"; };
 		940B2971238D20A800DC5F6F /* MoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreDetailViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		9459A76B23A75E3900521385 /* NumberPageIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPageIndicatorViewController.swift; sourceTree = "<group>"; };
 		949C25D32390FB4C00CD654B /* DataSourceAppendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAppendViewController.swift; sourceTree = "<group>"; };
 		949C25D72390FB9E00CD654B /* PushNextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNextViewController.swift; sourceTree = "<group>"; };
-		949C25D92390FC8900CD654B /* RawImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawImageViewController.swift; sourceTree = "<group>"; };
 		949C25DB2390FC9F00CD654B /* LoadingProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingProgressViewController.swift; sourceTree = "<group>"; };
 		949C25DD2390FCC000CD654B /* GIFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFViewController.swift; sourceTree = "<group>"; };
 		949C25E12390FCF900CD654B /* VideoPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPhotoViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 				940B2981238FBAC200DC5F6F /* SDWebImageViewController.swift */,
 				949C25DB2390FC9F00CD654B /* LoadingProgressViewController.swift */,
 				94A02D3F23992668007E5DCE /* LanternProgressView.swift */,
-				949C25D92390FC8900CD654B /* RawImageViewController.swift */,
+				2D1496FB260DDE79000B70EE /* CustomViewController.swift */,
 				2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */,
 				949C25DD2390FCC000CD654B /* GIFViewController.swift */,
 				940B2983238FC4FD00DC5F6F /* DataSourceDeleteViewController.swift */,
@@ -163,9 +163,9 @@
 				9459A76923A75A3700521385 /* DefaultPageIndicatorViewController.swift */,
 				9459A76B23A75E3900521385 /* NumberPageIndicatorViewController.swift */,
 				940B2960238D128200DC5F6F /* ResourceModel.swift */,
-				940B295F238D128200DC5F6F /* UICollectionView+JX.swift */,
-				940B295D238D128200DC5F6F /* UITableView+JX.swift */,
-				940B295C238D128200DC5F6F /* JXNamespace.swift */,
+				2D1496EF260DD7FD000B70EE /* NameSpaceWrapper.swift */,
+				2D1496F2260DD840000B70EE /* UITableViewExtension.swift */,
+				2D1496F6260DDB0A000B70EE /* UICollectionViewExtension.swift */,
 				940B295B238D128200DC5F6F /* Photos.plist */,
 				940B28B5238CD68900DC5F6F /* Main.storyboard */,
 				940B28B8238CD68A00DC5F6F /* Assets.xcassets */,
@@ -217,7 +217,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
-				ORGANIZATIONNAME = JiongXing;
+				ORGANIZATIONNAME = "Shenzhen Hive Box Technology Co.,Ltd";
 				TargetAttributes = {
 					940B28AB238CD68900DC5F6F = {
 						CreatedOnToolsVersion = 11.1;
@@ -309,11 +309,9 @@
 				940B296C238D1C7800DC5F6F /* MultipleCellViewController.swift in Sources */,
 				940B2982238FBAC200DC5F6F /* SDWebImageViewController.swift in Sources */,
 				940855D923A386CF0035DE67 /* VideoCell.swift in Sources */,
-				949C25DA2390FC8900CD654B /* RawImageViewController.swift in Sources */,
 				949C25DC2390FC9F00CD654B /* LoadingProgressViewController.swift in Sources */,
 				9459A76A23A75A3700521385 /* DefaultPageIndicatorViewController.swift in Sources */,
 				94BB36AE239A7D3B00B70F6A /* MultipleSectionViewController.swift in Sources */,
-				940B2965238D128200DC5F6F /* JXNamespace.swift in Sources */,
 				940B2969238D128200DC5F6F /* ResourceModel.swift in Sources */,
 				9408566723A395720035DE67 /* VerticalBrowseViewController.swift in Sources */,
 				949C25D82390FB9E00CD654B /* PushNextViewController.swift in Sources */,
@@ -322,21 +320,23 @@
 				940B28B2238CD68900DC5F6F /* SceneDelegate.swift in Sources */,
 				940B2984238FC4FD00DC5F6F /* DataSourceDeleteViewController.swift in Sources */,
 				940B2958238D125C00DC5F6F /* HomeViewController.swift in Sources */,
+				2D1496FC260DDE79000B70EE /* CustomViewController.swift in Sources */,
 				9459A76C23A75E3900521385 /* NumberPageIndicatorViewController.swift in Sources */,
 				940B297A238F70D900DC5F6F /* LocalImageZoomViewController.swift in Sources */,
 				949C25DE2390FCC000CD654B /* GIFViewController.swift in Sources */,
 				940B2980238FB3F000DC5F6F /* KingfisherImageViewController.swift in Sources */,
-				940B2968238D128200DC5F6F /* UICollectionView+JX.swift in Sources */,
-				940B2966238D128200DC5F6F /* UITableView+JX.swift in Sources */,
 				949C25E22390FCF900CD654B /* VideoPhotoViewController.swift in Sources */,
+				2D1496F7260DDB0A000B70EE /* UICollectionViewExtension.swift in Sources */,
 				2D7FB5EA250F79DD0071AF3B /* VideoZoomCell.swift in Sources */,
 				940B2962238D128200DC5F6F /* BaseCollectionViewController.swift in Sources */,
 				940B2972238D20A800DC5F6F /* MoreDetailViewController.swift in Sources */,
 				940B2963238D128200DC5F6F /* BaseCollectionViewCell.swift in Sources */,
+				2D1496F3260DD840000B70EE /* UITableViewExtension.swift in Sources */,
 				2DB2CD06250A191D00B0E92F /* CustomAnimatedTranstioning.swift in Sources */,
 				949C25D42390FB4C00CD654B /* DataSourceAppendViewController.swift in Sources */,
 				94A02D4023992669007E5DCE /* LanternProgressView.swift in Sources */,
 				940B297E238FA9C800DC5F6F /* LocalImageSmoothZoomViewController.swift in Sources */,
+				2D1496F0260DD7FD000B70EE /* NameSpaceWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

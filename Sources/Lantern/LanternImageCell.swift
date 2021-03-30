@@ -3,7 +3,7 @@
 //  Lantern
 //
 //  Created by JiongXing on 2019/11/12.
-//  Copyright © 2019 FengChao. All rights reserved.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
 import UIKit
@@ -25,9 +25,12 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         }
     }
     
-    open var imageView: UIImageView = {
-        let view = UIImageView()
+    open lazy var imageView: LanternImageView = {
+        let view = LanternImageView()
         view.clipsToBounds = true
+        view.imageDidChangedHandler = { [weak self] in
+            self?.setNeedsLayout()
+        }
         return view
     }()
     

@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by JiongXing on 2019/11/29.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
 import UIKit
@@ -18,18 +18,23 @@ class GIFViewController: BaseCollectionViewController {
     override var remark: String { "举例如何用SDWebImage加载GIF网络图片" }
     
     override func makeDataSource() -> [ResourceModel] {
-        let models = makeNetworkDataSource()
-        models[3].secondLevelUrl = "https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/gifImage.gif"
-        models[4].secondLevelUrl = "https://gss3.bdstatic.com/7Po3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D500/sign=51eb2484a1af2eddd0f149e9bd120102/48540923dd54564eb5babebbbede9c82d0584f50.jpg"
-        return models
+        let array = ["http://5b0988e595225.cdn.sohucs.com/images/20171202/0c9fe83abea54a4687503da30c4254be.gif",
+                     "https://att.3dmgame.com/att/album/201607/12/172044b6eqtn4zt0i5j1i8.gif",
+                     "http://5b0988e595225.cdn.sohucs.com/images/20180507/87e71c4ea00840daba4737bd8172ed97.gif"]
+        var result: [ResourceModel] = []
+        array.forEach { item in
+            let model = ResourceModel()
+            model.firstLevelUrl = item
+            result.append(model)
+        }
+        return result
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.jx.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
+        let cell = collectionView.fc.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
         if let firstLevel = self.dataSource[indexPath.item].firstLevelUrl {
             let url = URL(string: firstLevel)
-            cell.imageView.sd_setImage(with: url, completed: nil)
-            //cell.imageView.kf.setImage(with: url)
+            cell.imageView.kf.setImage(with: url)
         }
         return cell
     }
@@ -40,19 +45,13 @@ class GIFViewController: BaseCollectionViewController {
             self.dataSource.count
         }
         lantern.reloadCellAtIndex = { context in
-            let url = self.dataSource[context.index].secondLevelUrl.flatMap { URL(string: $0) }
+            let url = self.dataSource[context.index].firstLevelUrl.flatMap { URL(string: $0) }
             let lanternCell = context.cell as? LanternImageCell
             let collectionPath = IndexPath(item: context.index, section: indexPath.section)
             let collectionCell = collectionView.cellForItem(at: collectionPath) as? BaseCollectionViewCell
             let placeholder = collectionCell?.imageView.image
-            // 用SDWebImage加载
-            lanternCell?.imageView.sd_setImage(with: url, placeholderImage: placeholder, options: [], completed: { (_, _, _, _) in
-                lanternCell?.setNeedsLayout()
-            })
             // Kingfisher
-            /*lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder, options: [], completionHandler: { _ in
-                lanternCell?.setNeedsLayout()
-            })*/
+            lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder)
         }
         lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
             let path = IndexPath(item: index, section: indexPath.section)

@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by JiongXing on 2018/10/14.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
 import UIKit
@@ -42,7 +42,7 @@ class BaseCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         navigationItem.title = name
         collectionView?.backgroundColor = .black
-        collectionView?.jx.registerCell(BaseCollectionViewCell.self)
+        collectionView?.fc.registerCell(BaseCollectionViewCell.self)
         dataSource = makeDataSource()
     }
     

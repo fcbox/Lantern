@@ -3,7 +3,7 @@
 //  Lantern
 //
 //  Created by JiongXing on 2019/11/11.
-//  Copyright © 2019 FengChao. All rights reserved.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
 import UIKit
@@ -38,6 +38,12 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     open var itemSpacing: CGFloat {
         set { browserView.itemSpacing = newValue }
         get { browserView.itemSpacing }
+    }
+    
+    /// 新增更多num之前的数据总量
+    open var lastNumberOfItems: Int {
+        set { browserView.lastNumberOfItems = newValue }
+        get { browserView.lastNumberOfItems }
     }
     
     /// 当前页码

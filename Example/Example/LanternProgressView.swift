@@ -3,6 +3,7 @@
 //  Lantern
 //
 //  Created by JiongXing on 2018/10/14.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
 import UIKit
