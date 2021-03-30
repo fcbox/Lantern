@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by JiongXing on 2019/12/13.
-//  Copyright © 2021 丰巢科技. All rights reserved.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
 import Foundation

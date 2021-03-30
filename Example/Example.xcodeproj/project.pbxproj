@@ -217,7 +217,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
-				ORGANIZATIONNAME = "丰巢科技";
+				ORGANIZATIONNAME = "Shenzhen Hive Box Technology Co.,Ltd";
 				TargetAttributes = {
 					940B28AB238CD68900DC5F6F = {
 						CreatedOnToolsVersion = 11.1;
