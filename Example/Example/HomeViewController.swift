@@ -3,7 +3,7 @@
 //  Lantern
 //
 //  Created by JiongXing on 2019/11/11.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Copyright © 2021 丰巢科技. All rights reserved.
 //
 
 import UIKit
@@ -17,7 +17,7 @@ class HomeViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        tableView.jx.registerCell(HomeTableViewCell.self)
+        tableView.fc.registerCell(HomeTableViewCell.self)
         
         // 授权网络数据访问
         guard let url = URL(string: "http://www.baidu.com") else  {
@@ -35,13 +35,12 @@ class HomeViewController: UITableViewController {
         super.viewWillAppear(animated)
         dataSource = [
             LocalImageViewController(),
-            VerticalBrowseViewController(),
-            VideoPhotoViewController(),
             LocalImageZoomViewController(),
             LocalImageSmoothZoomViewController(),
-            RawImageViewController(),
+            CustomViewController(),
             KingfisherImageViewController(),
             SDWebImageViewController(),
+            GIFViewController(),
             DataSourceDeleteViewController(),
             DataSourceAppendViewController(),
             PushNextViewController(),
@@ -50,7 +49,8 @@ class HomeViewController: UITableViewController {
             MultipleSectionViewController(),
             DefaultPageIndicatorViewController(),
             NumberPageIndicatorViewController(),
-            GIFViewController()
+            VerticalBrowseViewController(),
+            VideoPhotoViewController()
         ]
     }
     
@@ -59,7 +59,7 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.jx.dequeueReusableCell(HomeTableViewCell.self)
+        let cell = tableView.fc.dequeueReusableCell(HomeTableViewCell.self)
         let vc = dataSource[indexPath.row]
         cell.textLabel?.text = vc.name
         cell.detailTextLabel?.text = vc.remark

@@ -2,14 +2,13 @@
 
 ![](https://github.com/fcbox/Lantern/raw/master/Assets/Banner.png)
 
-## 背景
 
-本项目由丰巢研发团队开发维护，并基于[Apache-2.0协议](http://www.apache.org/licenses/LICENSE-2.0)开源。
+Lantern（花灯）是一个基于Swift的高可用视图框架。它基于iOS原生的图片/视频浏览功能进行封装，并提供了更加酷炫的交互方式。此外，它还提供丰富的接口，扩展灵活，能让App快速集成浏览功能。
 
-> 深圳市丰巢科技有限公司成立于2015年6月6日，致力以智能快递柜 
-为切入点提供最后一公里交付解决方案，通过加强智能设备与人、快递及商用网点点链接，在解决末端物流配送难题上同步提供多元化的交付服务。 
+经过我们一年多的试用和改进，现将Lantern面向社区开源，希望和大家一起改进App图片/视频浏览交互，提供更好的用户体验。
 
-> Lantern基于图片/视频浏览功能做封装，满足主流交互方式，提供丰富的接口，扩展灵活，高度定制化，可以使App快速集成浏览功能。现Lantern面向社区开源，和大家一起关注App图片/视频浏览交互的演进。
+本项目由丰巢研发团队开发维护，并基于[Apache-2.0协议](http://www.apache.org/licenses/LICENSE-2.0)开源的项目，源地址为：[https://github.com/JiongXing/PhotoBrowser](https://github.com/JiongXing/PhotoBrowser)。后续将逐步全面迁移到此处，敬请留意。
+
 
 ## 效果预览
 
@@ -33,6 +32,28 @@
 
 ## 版本更新记录
 
+### Version 1.1.2
+
+> 2021/03/30
+
+- 加载更多新增图片时，图片偏移问题的优化
+
+- 网络图片加载完成后，视图刷新回调优化处理
+
+- 自定义Cell查看原图优化
+
+- Example的Demo文件命名规范
+
+  
+
+### Version 1.1.1
+
+> 2021/01/20
+
+- 优化屏幕旋转时闪屏修复
+
+  
+
 ### Version 1.1.0
 
 > 2020/09/16
@@ -51,4 +72,8 @@
 
 ## 更新日志
 
-- [ReleaseNotes](ReleaseNotes.md)
+- [Release Notes](ReleaseNotes.md)
+
+> 深圳市丰巢科技有限公司成立于2015年6月6日，是一家致力以智能快递柜为切入点，提供最后一公里交付解决方案的科技公司。 
+
+

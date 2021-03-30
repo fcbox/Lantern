@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by JiongXing on 2019/11/28.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Copyright © 2021 丰巢科技. All rights reserved.
 //
 
 import UIKit
@@ -21,7 +21,7 @@ class KingfisherImageViewController: BaseCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.jx.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
+        let cell = collectionView.fc.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
         if let firstLevel = self.dataSource[indexPath.item].firstLevelUrl {
             let url = URL(string: firstLevel)
             cell.imageView.kf.setImage(with: url)
@@ -41,15 +41,13 @@ class KingfisherImageViewController: BaseCollectionViewController {
             let collectionCell = collectionView.cellForItem(at: collectionPath) as? BaseCollectionViewCell
             let placeholder = collectionCell?.imageView.image
             // 用Kingfisher加载
-            lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder, options: [], completionHandler: { _ in
-                lanternCell?.setNeedsLayout()
-            })
+            lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder)
         }
-//        lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
-//            let path = IndexPath(item: index, section: indexPath.section)
-//            let cell = collectionView.cellForItem(at: path) as? BaseCollectionViewCell
-//            return cell?.imageView
-//        })
+        lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
+            let path = IndexPath(item: index, section: indexPath.section)
+            let cell = collectionView.cellForItem(at: path) as? BaseCollectionViewCell
+            return cell?.imageView
+        })
         lantern.pageIndex = indexPath.item
         lantern.show()
     }

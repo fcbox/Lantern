@@ -40,6 +40,12 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
         get { browserView.itemSpacing }
     }
     
+    /// 新增更多num之前的数据总量
+    open var lastNumberOfItems: Int {
+        set { browserView.lastNumberOfItems = newValue }
+        get { browserView.lastNumberOfItems }
+    }
+    
     /// 当前页码
     open var pageIndex: Int {
         set { browserView.pageIndex = newValue }

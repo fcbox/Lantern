@@ -25,9 +25,12 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         }
     }
     
-    open var imageView: UIImageView = {
-        let view = UIImageView()
+    open lazy var imageView: LanternImageView = {
+        let view = LanternImageView()
         view.clipsToBounds = true
+        view.imageDidChangedHandler = { [weak self] in
+            self?.setNeedsLayout()
+        }
         return view
     }()
     
@@ -64,11 +67,16 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         return cell
     }
     
-    open func setup() {
-        backgroundColor = .clear
+    /// 子类可重写，创建子视图。完全自定义时不必调super。
+    open func constructSubviews() {
         scrollView.delegate = self
         addSubview(scrollView)
         scrollView.addSubview(imageView)
+    }
+    
+    open func setup() {
+        backgroundColor = .clear
+        constructSubviews()
         
         /// 拖动手势
         addPanGesture()

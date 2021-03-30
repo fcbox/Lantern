@@ -1,29 +1,35 @@
 //
-//  RawImageViewController.swift
+//  CustomViewController.swift
 //  Example
 //
-//  Created by JiongXing on 2019/11/29.
-//  Copyright © 2019 JiongXing. All rights reserved.
+//  Created by 肖志斌 on 2021/3/26.
+//  Copyright © 2021 丰巢科技. All rights reserved.
 //
 
 import UIKit
 import Lantern
 import SDWebImage
 
-class RawImageViewController: BaseCollectionViewController {
+class CustomViewController: BaseCollectionViewController {
     
     override var name: String { "自定义cell和自定义转场动画" }
     
     override var remark: String { "举例如何实现查看原图" }
     
     override func makeDataSource() -> [ResourceModel] {
-        let models = makeNetworkDataSource()
-        models[3].thirdLevelUrl = "https://github.com/JiongXing/PhotoBrowser/raw/master/Assets/rawImage.jpg"
+        let array = ["http://5b0988e595225.cdn.sohucs.com/images/20171202/0c9fe83abea54a4687503da30c4254be.gif",
+                     "https://att.3dmgame.com/att/album/201607/12/172044b6eqtn4zt0i5j1i8.gif",
+                     "http://5b0988e595225.cdn.sohucs.com/images/20180507/87e71c4ea00840daba4737bd8172ed97.gif"]
+        var models = makeNetworkDataSource()
+        models[0].thirdLevelUrl = array[0]
+        models[1].thirdLevelUrl = array[1]
+        models[2].thirdLevelUrl = array[2]
+        models.removeLast()
         return models
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.jx.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
+        let cell = collectionView.fc.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
         if let firstLevel = self.dataSource[indexPath.item].firstLevelUrl {
             let url = URL(string: firstLevel)
             cell.imageView.sd_setImage(with: url, completed: nil)
