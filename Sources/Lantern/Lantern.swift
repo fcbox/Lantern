@@ -94,6 +94,8 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
         get { browserView.cellDidAppear }
     }
     
+    open var dismissClosure: (() -> Void)?
+    
     /// 主视图
     open lazy var browserView = LanternView()
     
@@ -276,6 +278,7 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
             navigationController?.delegate = self
             navigationController?.popViewController(animated: true)
         }
+        dismissClosure?()
     }
     
     //
