@@ -60,7 +60,10 @@ open class LanternNumberPageIndicator: UILabel, LanternPlug {
         text = "\(pageIndex + 1) / \(total)"
         sizeToFit()
         layer.cornerRadius = frame.height / 2
-        isHidden = numberOfItems <= 1
+        
+        if numberOfItems <= 1 {
+            isHidden = true
+        }
     }
     
     public func didChanged(pageIndex: Int) {

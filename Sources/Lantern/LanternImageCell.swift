@@ -200,7 +200,12 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
     
     /// 单击
     @objc open func onSingleTap(_ tap: UITapGestureRecognizer) {
-        lantern?.dismiss()
+        guard let lantern = lantern else { return }
+        if lantern.enableSingleTapDismiss {
+            lantern.dismiss()
+        } else {
+            lantern.togglePlugs()
+        }
     }
     
     /// 双击
@@ -248,7 +253,7 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
             lantern?.setStatusBar(hidden: result.scale > 0.99)
             
             lantern?.plugItems?.forEach({ plug in
-                plug.hidePlug(hide: result.scale < 0.99)
+                plug.hidePlug(hidden: result.scale < 0.99, animated: false)
             })
         case .ended, .cancelled:
             imageView.frame = panResult(pan).frame
@@ -259,7 +264,7 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
                 lantern?.maskView.alpha = 1.0
                 lantern?.setStatusBar(hidden: true)
                 lantern?.plugItems?.forEach({ plug in
-                    plug.hidePlug(hide: false)
+                    plug.hidePlug(hidden: false, animated: false)
                 })
                 resetImageViewPosition()
             }

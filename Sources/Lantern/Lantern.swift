@@ -97,6 +97,8 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     /// 主视图
     open lazy var browserView = LanternView()
     
+    public var enableSingleTapDismiss: Bool = true
+    
     // 扩展插件
     open var plugItems: [LanternPlug]?
     
@@ -186,9 +188,7 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
         super.viewDidAppear(animated)
         navigationController?.delegate = previousNavigationControllerDelegate
         
-        plugItems?.forEach({ plug in
-            plug.setup(with: self)
-        })
+        setupPlugs()
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
@@ -199,6 +199,40 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         browserView.isRotating = true
+    }
+    
+    //
+    // MARK: - Plug
+    //
+    
+    private func setupPlugs() {
+        plugItems?.forEach({ plug in
+            plug.setup(with: self)
+        })
+    }
+    
+    func togglePlugs() {
+        guard let count = plugItems?.count, count > 0 else { return  }
+        
+        let hidden = !arePlugsHidden()
+        
+        plugItems?.forEach({ plug in
+            if !plug.ignoreToggle {
+                plug.hidePlug(hidden: hidden, animated: true)
+            }
+        })
+    }
+    
+    func arePlugsHidden() -> Bool {
+        var hidden = true
+        
+        plugItems?.forEach({ plug in
+            if !plug.ignoreToggle {
+                hidden = hidden && plug.isPlugHidden
+            }
+        })
+        
+        return hidden
     }
     
     //

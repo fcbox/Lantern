@@ -39,7 +39,10 @@ open class LanternDefaultPageIndicator: UIPageControl, LanternPlug {
         numberOfPages = numberOfItems
         currentPage = min(pageIndex, numberOfPages - 1)
         sizeToFit()
-        isHidden = numberOfPages <= 1
+        
+        if numberOfItems <= 1 {
+            isHidden = true
+        }
     }
     
     open func didChanged(pageIndex: Int) {

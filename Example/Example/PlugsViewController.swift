@@ -1,20 +1,21 @@
 //
-//  NumberPageIndicatorViewController.swift
+//  PlugsViewController.swift
 //  Example
 //
-//  Created by JiongXing on 2019/12/16.
-//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
+//  Created by sky on 2021/12/16.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd. All rights reserved.
 //
 
 import UIKit
 import Lantern
-import SDWebImage
 
-class NumberPageIndicatorViewController: BaseCollectionViewController {
+private let reuseIdentifier = "Cell"
+
+class PlugsViewController: BaseCollectionViewController {
     
-    override var name: String { "数字样式的页码指示器" }
+    override var name: String { "插件" }
     
-    override var remark: String { "举例如何使用数字样式的页码指示器" }
+    override var remark: String { "举例如何使用plug" }
     
     override func makeDataSource() -> [ResourceModel] {
         makeNetworkDataSource()
@@ -51,7 +52,7 @@ class NumberPageIndicatorViewController: BaseCollectionViewController {
             return cell?.imageView
         })
         // 数字样式的页码指示器
-        lantern.plugItems = [LanternNumberPageIndicator()]
+        lantern.plugItems = [LanternDefaultPageIndicator(),LanternPlugCloseView()]
         lantern.pageIndex = indexPath.item
         lantern.enableSingleTapDismiss = false
         lantern.show()

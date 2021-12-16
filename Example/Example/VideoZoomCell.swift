@@ -180,7 +180,7 @@ class VideoZoomCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, 
             lantern?.maskView.alpha = result.scale * result.scale
             lantern?.setStatusBar(hidden: result.scale > 0.99)
             lantern?.plugItems?.forEach({ plug in
-                plug.hidePlug(hide: result.scale < 0.99)
+                plug.hidePlug(hidden: result.scale < 0.99, animated: false)
             })
         case .ended, .cancelled:
             imageView.frame = panResult(pan).frame
@@ -191,7 +191,7 @@ class VideoZoomCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, 
                 lantern?.maskView.alpha = 1.0
                 lantern?.setStatusBar(hidden: true)
                 lantern?.plugItems?.forEach({ plug in
-                    plug.hidePlug(hide: false)
+                    plug.hidePlug(hidden: false, animated: false)
                 })
                 resetImageViewPosition()
             }
