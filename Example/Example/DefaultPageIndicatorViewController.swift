@@ -51,7 +51,7 @@ class DefaultPageIndicatorViewController: BaseCollectionViewController {
             return cell?.imageView
         })
         // UIPageIndicator样式的页码指示器
-        lantern.pageIndicator = LanternDefaultPageIndicator()
+        lantern.plugItems = [LanternDefaultPageIndicator()]
         lantern.pageIndex = indexPath.item
         lantern.show()
     }

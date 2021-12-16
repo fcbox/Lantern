@@ -37,7 +37,6 @@
 		239AE245A6956B81967532E2E00143DF /* SDAnimatedImageRep.h in Headers */ = {isa = PBXBuildFile; fileRef = 7690517467124467E2B5D66586613C0D /* SDAnimatedImageRep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2873D844D490F41A4B5BEFFC86168652 /* LanternAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5C47F5FF459DBDE0369C6359169ABE /* LanternAnimatedTransitioning.swift */; };
 		29583F54F676F817D35ECAF46223E483 /* SDImageIOAnimatedCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DF896AD0A49C6BE94609214D0A7C96 /* SDImageIOAnimatedCoder.m */; };
-		2A367E617985CC6960C616E1A5A4614A /* LanternPageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176ACB08E0A787677D9DEAB71B64FB5C /* LanternPageIndicator.swift */; };
 		2AFC358F70C8A7CCBCF4B7E3951AB88F /* SDAnimatedImagePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 99861625F9C28B314DC7B5A3C7DE383F /* SDAnimatedImagePlayer.m */; };
 		2CE3B5EB3E415B5467CC027FC85D9F99 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2102D029A9E2862BACDFB99BDBFDF1 /* Result.swift */; };
 		2D1497FA2611A881000B70EE /* LanternImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1497F92611A881000B70EE /* LanternImageView.swift */; };
@@ -45,6 +44,7 @@
 		2F342548A7F562A34B0C5D2506081B1A /* SDFileAttributeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 22458DDEEE3384B782834004B1F3F7ED /* SDFileAttributeHelper.m */; };
 		2FFD4ED5452BD4758C944A2F932F9492 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 094F456C4B9E4C448AC3D2B1D4C4FBD6 /* Foundation.framework */; };
 		31E3A85E19E8FF8C35B1552F458AEEC4 /* SDWebImageError.m in Sources */ = {isa = PBXBuildFile; fileRef = D199105A6414227A3FB4E008859D0968 /* SDWebImageError.m */; };
+		338516BF276B5504002FAD1E /* LanternPlug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338516BE276B5504002FAD1E /* LanternPlug.swift */; };
 		38ECB82C9A053349A8928D026F437792 /* ImageDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6C2553271D1C3F01BFF8F739AFF5A7 /* ImageDataProvider.swift */; };
 		3B0F9DCADF85B5BA743EE6D4EFE62AAB /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B23BCD259046E2B05B94CEBAA2F859D /* SDWebImage-dummy.m */; };
 		3B4D69603D0BBB3B19677C60A546B7AF /* SDAssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A73C5C07C719EC24556E399B5F9EB2FB /* SDAssociatedObject.m */; };
@@ -274,7 +274,6 @@
 		15EE0251ED96D3213A34122460CAF95F /* SDImageCachesManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCachesManager.h; path = SDWebImage/Core/SDImageCachesManager.h; sourceTree = "<group>"; };
 		160EF0BA4695C2E094639C4EFD8BB643 /* UIColor+HexString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+HexString.h"; path = "SDWebImage/Private/UIColor+HexString.h"; sourceTree = "<group>"; };
 		1742F6FF7C31D340A28946F4DEAA877E /* SDDisplayLink.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDDisplayLink.h; path = SDWebImage/Private/SDDisplayLink.h; sourceTree = "<group>"; };
-		176ACB08E0A787677D9DEAB71B64FB5C /* LanternPageIndicator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LanternPageIndicator.swift; path = Sources/Lantern/LanternPageIndicator.swift; sourceTree = "<group>"; };
 		18F7A5092B6360B63FD8FAABA93AE64A /* SDImageIOCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageIOCoder.m; path = SDWebImage/Core/SDImageIOCoder.m; sourceTree = "<group>"; };
 		1A89ECA0E60CB7223A3AD2FF5BD546FB /* SDImageAPNGCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageAPNGCoder.m; path = SDWebImage/Core/SDImageAPNGCoder.m; sourceTree = "<group>"; };
 		1AC60973465E3F394A825CEDB47E2176 /* UIImage+ExtendedCacheData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ExtendedCacheData.m"; path = "SDWebImage/Core/UIImage+ExtendedCacheData.m"; sourceTree = "<group>"; };
@@ -307,6 +306,7 @@
 		30EC1B465D9F4495E3F94ADB305C7FA7 /* NSButton+Kingfisher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSButton+Kingfisher.swift"; path = "Sources/Extensions/NSButton+Kingfisher.swift"; sourceTree = "<group>"; };
 		31C1D37707DFAA5E6A164BCC07834264 /* Pods-Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-Info.plist"; sourceTree = "<group>"; };
 		31CDE6DEBC2ACEA27E19E15AD865E931 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/Core/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
+		338516BE276B5504002FAD1E /* LanternPlug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanternPlug.swift; sourceTree = "<group>"; };
 		3401D38A6E543B8860E2EB77785DA8F7 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/Core/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		35C305D3797C284E6F5BAA1D3E6F9BF8 /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
 		35C40ECE38C9C7462C97703EA03A695A /* UIImage+MemoryCacheCost.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MemoryCacheCost.m"; path = "SDWebImage/Core/UIImage+MemoryCacheCost.m"; sourceTree = "<group>"; };
@@ -539,8 +539,8 @@
 				1AE933E609212760281BBBC7EC49184B /* LanternImageCell.swift */,
 				C56A480323B176FC534FC8F3D3B9807F /* LanternLog.swift */,
 				B2C2055C87DD5D973A3C2C12703AB293 /* LanternNoneAnimator.swift */,
+				338516BE276B5504002FAD1E /* LanternPlug.swift */,
 				93671E57657946DDBB9EA981DC0D0A84 /* LanternNumberPageIndicator.swift */,
-				176ACB08E0A787677D9DEAB71B64FB5C /* LanternPageIndicator.swift */,
 				B1F4D943D1E8379958BE4679CEF6EA95 /* LanternSmoothZoomAnimator.swift */,
 				8F1C29AF41AF71661F243419C9BB6394 /* LanternView.swift */,
 				2D1497F92611A881000B70EE /* LanternImageView.swift */,
@@ -1249,7 +1249,7 @@
 				69A88603D8144FEFCA7DC030FFDDC35F /* LanternLog.swift in Sources */,
 				55711922E8A43E60CFF2739230B62C63 /* LanternNoneAnimator.swift in Sources */,
 				E3D8CDD5BE65B3B25B1698E8C47EEC15 /* LanternNumberPageIndicator.swift in Sources */,
-				2A367E617985CC6960C616E1A5A4614A /* LanternPageIndicator.swift in Sources */,
+				338516BF276B5504002FAD1E /* LanternPlug.swift in Sources */,
 				9A856EA8739843437DBDEAFA67C5B2CF /* LanternSmoothZoomAnimator.swift in Sources */,
 				9B5FDB79F8D464D3EA6ED310CEEF929E /* LanternView.swift in Sources */,
 				EE5000C7B7E6B4861CAE9E25494CCCE8 /* LanternZoomAnimator.swift in Sources */,

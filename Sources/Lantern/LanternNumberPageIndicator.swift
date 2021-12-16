@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class LanternNumberPageIndicator: UILabel, LanternPageIndicator {
+open class LanternNumberPageIndicator: UILabel, LanternPlug {
     
     ///  页码与顶部的距离
     open lazy var topPadding: CGFloat = {
@@ -42,7 +42,15 @@ open class LanternNumberPageIndicator: UILabel, LanternPageIndicator {
     }
     
     public func setup(with lantern: Lantern) {
-        
+        if superview != lantern.view {
+            lantern.view.addSubview(self)
+            
+            translatesAutoresizingMaskIntoConstraints = false
+            if #available(iOS 9.0, *) {
+                centerXAnchor.constraint(equalTo: lantern.view.centerXAnchor).isActive = true
+                topAnchor.constraint(equalTo: lantern.view.topAnchor, constant: topPadding).isActive = true
+            }
+        }
     }
     
     private var total: Int = 0
@@ -51,12 +59,7 @@ open class LanternNumberPageIndicator: UILabel, LanternPageIndicator {
         total = numberOfItems
         text = "\(pageIndex + 1) / \(total)"
         sizeToFit()
-        frame.size.width += frame.height
         layer.cornerRadius = frame.height / 2
-        if let view = superview {
-            center.x = view.bounds.width / 2
-            frame.origin.y = topPadding
-        }
         isHidden = numberOfItems <= 1
     }
     

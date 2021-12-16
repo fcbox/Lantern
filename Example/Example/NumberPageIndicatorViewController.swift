@@ -51,7 +51,7 @@ class NumberPageIndicatorViewController: BaseCollectionViewController {
             return cell?.imageView
         })
         // 数字样式的页码指示器
-        lantern.pageIndicator = LanternNumberPageIndicator()
+        lantern.plugItems = [LanternNumberPageIndicator()]
         lantern.pageIndex = indexPath.item
         lantern.show()
     }
