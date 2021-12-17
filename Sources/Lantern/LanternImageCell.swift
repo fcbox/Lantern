@@ -111,7 +111,7 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(_:)))
     }()
     
-    private weak var existedPan: UIPanGestureRecognizer?
+    open private(set) weak var existedPan: UIPanGestureRecognizer?
     
     /// 添加拖动手势
     open func addPanGesture() {
