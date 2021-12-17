@@ -211,6 +211,12 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
         })
     }
     
+    private func removePlugs() {
+        plugItems?.forEach({ plug in
+            plug.removeFromLantern()
+        })
+    }
+    
     func togglePlugs() {
         guard let count = plugItems?.count, count > 0 else { return  }
         
@@ -313,11 +319,7 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     open func dismiss() {
         setStatusBar(hidden: false)
         
-        plugItems?.forEach({ plug in
-            if let plugView = plug as? UIView {
-                plugView.removeFromSuperview()
-            }
-        })
+        removePlugs()
         
         if presentingViewController != nil {
             dismiss(animated: true, completion: nil)

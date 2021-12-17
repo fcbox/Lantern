@@ -52,7 +52,7 @@ class PlugsViewController: BaseCollectionViewController {
             return cell?.imageView
         })
         // 数字样式的页码指示器
-        lantern.plugItems = [LanternDefaultPageIndicator(),LanternPlugCloseView()]
+        lantern.plugItems = [LanternDefaultPageIndicator(),LanternPlugCloseItem()]
         lantern.pageIndex = indexPath.item
         lantern.enableSingleTapDismiss = false
         lantern.show()

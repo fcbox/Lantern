@@ -22,6 +22,8 @@ public protocol LanternPlug {
     func didChanged(pageIndex: Int)
     
     func hidePlug(hidden: Bool, animated: Bool)
+    
+    func removeFromLantern()
 }
 
 extension LanternPlug {
@@ -44,6 +46,10 @@ extension LanternPlug {
     public func hidePlug(hidden: Bool, animated: Bool) {
         debugPrint("defalut plug hidePlug")
     }
+    
+    public func removeFromLantern() {
+        debugPrint("defalut plug removeFromLantern")
+    }
 }
 
 extension LanternPlug where Self: UIView {
@@ -65,5 +71,9 @@ extension LanternPlug where Self: UIView {
                 }
             }
         }
+    }
+    
+    public func removeFromLantern() {
+        removeFromSuperview()
     }
 }

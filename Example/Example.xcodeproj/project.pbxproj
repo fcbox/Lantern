@@ -14,7 +14,7 @@
 		2D7FB5EA250F79DD0071AF3B /* VideoZoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FB5E9250F79DD0071AF3B /* VideoZoomCell.swift */; };
 		2DB2CD06250A191D00B0E92F /* CustomAnimatedTranstioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */; };
 		338516C2276B8A0D002FAD1E /* PlugsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338516C1276B8A0D002FAD1E /* PlugsViewController.swift */; };
-		338516C4276B8AA4002FAD1E /* LanternPlugCloseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338516C3276B8AA4002FAD1E /* LanternPlugCloseView.swift */; };
+		338516C4276B8AA4002FAD1E /* LanternPlugCloseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338516C3276B8AA4002FAD1E /* LanternPlugCloseItem.swift */; };
 		940855D523A372830035DE67 /* video_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D223A372820035DE67 /* video_2.MP4 */; };
 		940855D623A372830035DE67 /* video_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D323A372830035DE67 /* video_1.MP4 */; };
 		940855D723A372830035DE67 /* video_0.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D423A372830035DE67 /* video_0.MP4 */; };
@@ -58,7 +58,7 @@
 		2D7FB5E9250F79DD0071AF3B /* VideoZoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoZoomCell.swift; sourceTree = "<group>"; };
 		2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimatedTranstioning.swift; sourceTree = "<group>"; };
 		338516C1276B8A0D002FAD1E /* PlugsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlugsViewController.swift; sourceTree = "<group>"; };
-		338516C3276B8AA4002FAD1E /* LanternPlugCloseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanternPlugCloseView.swift; sourceTree = "<group>"; };
+		338516C3276B8AA4002FAD1E /* LanternPlugCloseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanternPlugCloseItem.swift; sourceTree = "<group>"; };
 		940855D223A372820035DE67 /* video_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_2.MP4; sourceTree = "<group>"; };
 		940855D323A372830035DE67 /* video_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_1.MP4; sourceTree = "<group>"; };
 		940855D423A372830035DE67 /* video_0.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_0.MP4; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 				9459A76923A75A3700521385 /* DefaultPageIndicatorViewController.swift */,
 				9459A76B23A75E3900521385 /* NumberPageIndicatorViewController.swift */,
 				338516C1276B8A0D002FAD1E /* PlugsViewController.swift */,
-				338516C3276B8AA4002FAD1E /* LanternPlugCloseView.swift */,
+				338516C3276B8AA4002FAD1E /* LanternPlugCloseItem.swift */,
 				940B2960238D128200DC5F6F /* ResourceModel.swift */,
 				2D1496EF260DD7FD000B70EE /* NameSpaceWrapper.swift */,
 				2D1496F2260DD840000B70EE /* UITableViewExtension.swift */,
@@ -314,7 +314,7 @@
 			files = (
 				940B296C238D1C7800DC5F6F /* MultipleCellViewController.swift in Sources */,
 				940B2982238FBAC200DC5F6F /* SDWebImageViewController.swift in Sources */,
-				338516C4276B8AA4002FAD1E /* LanternPlugCloseView.swift in Sources */,
+				338516C4276B8AA4002FAD1E /* LanternPlugCloseItem.swift in Sources */,
 				940855D923A386CF0035DE67 /* VideoCell.swift in Sources */,
 				949C25DC2390FC9F00CD654B /* LoadingProgressViewController.swift in Sources */,
 				9459A76A23A75A3700521385 /* DefaultPageIndicatorViewController.swift in Sources */,
