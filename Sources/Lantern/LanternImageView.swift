@@ -8,10 +8,17 @@
 
 import UIKit
 
-public class LanternImageView: UIImageView {
+public typealias ImageDidChangedHandler = () -> Void
+
+public protocol LanternImageViewType: UIImageView {
+
+    var imageDidChangedHandler: ImageDidChangedHandler? { get set }
+}
+
+public class LanternImageView: UIImageView, LanternImageViewType {
 
     public var imageDidChangedHandler: (() -> ())?
-    
+
     public override var image: UIImage? {
         didSet {
             imageDidChangedHandler?()
