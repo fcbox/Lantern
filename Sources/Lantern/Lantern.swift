@@ -276,6 +276,7 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
         setStatusBar(hidden: false)
         pageIndicator?.removeFromSuperview()
         if presentingViewController != nil {
+            self.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
             navigationController?.delegate = self
             navigationController?.popViewController(animated: true)
