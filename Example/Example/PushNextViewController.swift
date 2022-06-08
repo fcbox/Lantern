@@ -27,8 +27,8 @@ class PushNextViewController: BaseCollectionViewController {
     
     override func openLantern(with collectionView: UICollectionView, indexPath: IndexPath) {
         let lantern = Lantern()
-        lantern.numberOfItems = {
-            self.dataSource.count
+        lantern.numberOfItems = {[weak self] in
+            self?.dataSource.count ?? 0
         }
         lantern.reloadCellAtIndex = { context in
             guard let lanternCell = context.cell as? LanternImageCell else {

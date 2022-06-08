@@ -42,8 +42,8 @@ class VideoPhotoViewController: BaseCollectionViewController {
     
     override func openLantern(with collectionView: UICollectionView, indexPath: IndexPath) {
         let lantern = Lantern()
-        lantern.numberOfItems = {
-            self.dataSource.count
+        lantern.numberOfItems = {[weak self] in
+            self?.dataSource.count ?? 0
         }
         lantern.cellClassAtIndex = { index in
             index % 2 == 0 ? VideoZoomCell.self : LanternImageCell.self
