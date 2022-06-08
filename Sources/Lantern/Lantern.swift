@@ -134,6 +134,11 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     
     /// 刷新
     open func reloadData() {
+        // 图片数量为0时，移除
+        if numberOfItems() == 0 {
+            dismiss()
+            return
+        }
         browserView.reloadData()
         pageIndicator?.reloadData(numberOfItems: numberOfItems(), pageIndex: pageIndex)
     }
@@ -271,7 +276,6 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
         setStatusBar(hidden: false)
         pageIndicator?.removeFromSuperview()
         if presentingViewController != nil {
-            dismiss(animated: true, completion: nil)
         } else {
             navigationController?.delegate = self
             navigationController?.popViewController(animated: true)
