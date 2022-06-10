@@ -2,7 +2,7 @@
 //  CustomAnimatedTranstioning.swift
 //  Example
 //
-//  Created by 肖志斌 on 2020/9/10.
+//  Created by 小豌先生 on 2020/9/10.
 //  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
