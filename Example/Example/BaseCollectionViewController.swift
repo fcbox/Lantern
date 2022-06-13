@@ -83,9 +83,9 @@ class BaseCollectionViewController: UICollectionViewController {
         return result
     }
     
-    func makeNetworkDataSource() -> [ResourceModel] {
+    func makeNetworkDataSource(_ source: String? = "Photos") -> [ResourceModel] {
         var result: [ResourceModel] = []
-        guard let url = Bundle.main.url(forResource: "Photos", withExtension: "plist") else {
+        guard let url = Bundle.main.url(forResource: source, withExtension: "plist") else {
             return result
         }
         guard let data = try? Data.init(contentsOf: url) else {
