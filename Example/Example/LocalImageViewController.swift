@@ -29,8 +29,8 @@ class LocalImageViewController: BaseCollectionViewController {
         // 实例化
         let lantern = Lantern()
         // 浏览过程中实时获取数据总量
-        lantern.numberOfItems = {
-            self.dataSource.count
+        lantern.numberOfItems = {[weak self] in
+            self?.dataSource.count ?? 0
         }
         // 刷新Cell数据。本闭包将在Cell完成位置布局后调用。
         lantern.reloadCellAtIndex = { context in

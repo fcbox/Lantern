@@ -31,8 +31,8 @@ class KingfisherImageViewController: BaseCollectionViewController {
     
     override func openLantern(with collectionView: UICollectionView, indexPath: IndexPath) {
         let lantern = Lantern()
-        lantern.numberOfItems = {
-            self.dataSource.count
+        lantern.numberOfItems = {[weak self] in
+            self?.dataSource.count ?? 0
         }
         lantern.reloadCellAtIndex = { context in
             let url = self.dataSource[context.index].secondLevelUrl.flatMap { URL(string: $0) }

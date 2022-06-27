@@ -2,7 +2,7 @@
 //  VideoZoomCell.swift
 //  Example
 //
-//  Created by 肖志斌 on 2020/9/14.
+//  Created by 小豌先生 on 2020/9/14.
 //  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 

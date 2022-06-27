@@ -2,7 +2,7 @@
 //  LanternImageCell.swift
 //  Lantern
 //
-//  Created by JiongXing on 2019/11/12.
+//  Created by 小豌先生 on 2022/6/10.
 //  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
@@ -25,12 +25,9 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         }
     }
     
-    open lazy var imageView: LanternImageView = {
-        let view = LanternImageView()
+    open lazy var imageView: UIImageView = {
+        let view = UIImageView()
         view.clipsToBounds = true
-        view.imageDidChangedHandler = { [weak self] in
-            self?.setNeedsLayout()
-        }
         return view
     }()
     
@@ -46,6 +43,7 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
     }()
     
     deinit {
+        imageView.removeObserver(self, forKeyPath: "image", context: nil)
         LanternLog.high("deinit - \(self.classForCoder)")
     }
     
@@ -72,6 +70,11 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         scrollView.delegate = self
         addSubview(scrollView)
         scrollView.addSubview(imageView)
+        // 使用 kvo 监控 imageView 的 image 的变化
+        imageView.addObserver(self,
+                              forKeyPath: "image",
+                              options: [.new],
+                              context: nil)
     }
     
     open func setup() {
@@ -325,5 +328,14 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
     
     open var showContentView: UIView {
         return imageView
+    }
+    
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard let imgView = object as? UIImageView, imgView == imageView, keyPath == "image" else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+            return
+        }
+        // 重新布局
+        setNeedsLayout()
     }
 }

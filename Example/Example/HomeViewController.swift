@@ -40,6 +40,7 @@ class HomeViewController: UITableViewController {
             CustomViewController(),
             KingfisherImageViewController(),
             SDWebImageViewController(),
+            LongImageViewController(),
             GIFViewController(),
             DataSourceDeleteViewController(),
             DataSourceAppendViewController(),

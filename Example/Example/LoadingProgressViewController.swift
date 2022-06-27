@@ -31,8 +31,8 @@ class LoadingProgressViewController: BaseCollectionViewController {
     
     override func openLantern(with collectionView: UICollectionView, indexPath: IndexPath) {
         let lantern = Lantern()
-        lantern.numberOfItems = {
-            self.dataSource.count
+        lantern.numberOfItems = {[weak self] in
+            self?.dataSource.count ?? 0
         }
         // 使用自定义的Cell
         lantern.cellClassAtIndex = { _ in
