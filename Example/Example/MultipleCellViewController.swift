@@ -27,8 +27,8 @@ class MultipleCellViewController: BaseCollectionViewController {
     
     override func openLantern(with collectionView: UICollectionView, indexPath: IndexPath) {
         let lantern = Lantern()
-        lantern.numberOfItems = {
-            self.dataSource.count + 1
+        lantern.numberOfItems = {[weak self] in
+            self?.dataSource.count ?? 0 + 1
         }
         lantern.cellClassAtIndex = { index in
             if index < self.dataSource.count {

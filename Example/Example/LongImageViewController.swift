@@ -1,30 +1,30 @@
 //
-//  SDWebImageViewController.swift
+//  LongImageViewController.swift
 //  Example
 //
-//  Created by JiongXing on 2019/11/28.
-//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
+//  Created by 小豌先生 on 2022/6/13.
+//  Copyright © 2022 Shenzhen Hive Box Technology Co.,Ltd. All rights reserved.
 //
 
 import UIKit
 import Lantern
-import SDWebImage
+import Kingfisher
 
-class SDWebImageViewController: BaseCollectionViewController {
+class LongImageViewController: BaseCollectionViewController {
     
-    override var name: String { "网络图片-SDWebImage" }
+    override var name: String { "长图显示动画效果" }
     
-    override var remark: String { "举例如何用SDWebImage加载网络图片" }
+    override var remark: String { "长图加载网络图片" }
     
     override func makeDataSource() -> [ResourceModel] {
-        makeNetworkDataSource()
+        makeNetworkDataSource("LongPhotos")
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.fc.dequeueReusableCell(BaseCollectionViewCell.self, for: indexPath)
         if let firstLevel = self.dataSource[indexPath.item].firstLevelUrl {
             let url = URL(string: firstLevel)
-            cell.imageView.sd_setImage(with: url, completed: nil)
+            cell.imageView.kf.setImage(with: url)
         }
         return cell
     }
@@ -37,17 +37,24 @@ class SDWebImageViewController: BaseCollectionViewController {
         lantern.reloadCellAtIndex = { context in
             let url = self.dataSource[context.index].secondLevelUrl.flatMap { URL(string: $0) }
             let lanternCell = context.cell as? LanternImageCell
-            lanternCell?.index = context.index
             let collectionPath = IndexPath(item: context.index, section: indexPath.section)
             let collectionCell = collectionView.cellForItem(at: collectionPath) as? BaseCollectionViewCell
             let placeholder = collectionCell?.imageView.image
-            // 用SDWebImage加载
-            lanternCell?.imageView.sd_setImage(with: url, placeholderImage: placeholder)
+            // 用Kingfisher加载
+            lanternCell?.imageView.kf.setImage(with: url, placeholder: placeholder)
         }
-        lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
+        // 针对长图显示动画闪动问题，使用LanternSmoothZoomAnimator动画，回传cell的imageView
+        lantern.transitionAnimator = LanternSmoothZoomAnimator(transitionViewAndFrame: { (index, destinationView) -> LanternSmoothZoomAnimator.TransitionViewAndFrame? in
             let path = IndexPath(item: index, section: indexPath.section)
-            let cell = collectionView.cellForItem(at: path) as? BaseCollectionViewCell
-            return cell?.imageView
+            guard let cell = collectionView.cellForItem(at: path) as? BaseCollectionViewCell else {
+                return nil
+            }
+            let image = cell.imageView.image
+            let transitionView = UIImageView(image: image)
+            transitionView.contentMode = cell.imageView.contentMode
+            transitionView.clipsToBounds = true
+            let thumbnailFrame = cell.imageView.convert(cell.imageView.bounds, to: destinationView)
+            return (transitionView, thumbnailFrame)
         })
         lantern.pageIndex = indexPath.item
         lantern.show()

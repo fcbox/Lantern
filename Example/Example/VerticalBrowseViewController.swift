@@ -39,8 +39,8 @@ class VerticalBrowseViewController: BaseCollectionViewController {
         let lantern = Lantern()
         // 指定滑动方向为垂直
         lantern.scrollDirection = .vertical
-        lantern.numberOfItems = {
-            self.dataSource.count
+        lantern.numberOfItems = {[weak self] in
+            self?.dataSource.count ?? 0
         }
         lantern.cellClassAtIndex = { index in
             VideoCell.self

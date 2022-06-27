@@ -2,7 +2,7 @@
 //  CustomViewController.swift
 //  Example
 //
-//  Created by 肖志斌 on 2021/3/26.
+//  Created by 小豌先生 on 2021/3/26.
 //  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
 //
 
@@ -39,8 +39,8 @@ class CustomViewController: BaseCollectionViewController {
     
     override func openLantern(with collectionView: UICollectionView, indexPath: IndexPath) {
         let lantern = Lantern()
-        lantern.numberOfItems = {
-            self.dataSource.count
+        lantern.numberOfItems = {[weak self] in
+            self?.dataSource.count ?? 0
         }
         // 使用自定义的Cell
         lantern.cellClassAtIndex = { _ in

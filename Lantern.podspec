@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Lantern'
-    s.version          = '1.1.2'
+    s.version          = '1.1.3'
     s.summary          = 'Elegant photo and video browser in Swift.'
     s.description      = 'Elegant photo and video browser in Swift. Inspired by WeChat.'
     
@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = '8.0'
     s.swift_version = '4.2', '5.0'
     s.source_files = 'Sources/Lantern/*'
-    
+
 end
