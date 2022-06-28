@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'Lantern'
-    s.version          = '1.1.3'
+    s.version          = '1.1.4'
     s.summary          = 'Elegant photo and video browser in Swift.'
     s.description      = 'Elegant photo and video browser in Swift. Inspired by WeChat.'
     
