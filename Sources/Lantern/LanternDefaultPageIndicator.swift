@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class LanternDefaultPageIndicator: UIPageControl, LanternPageIndicator {
+open class LanternDefaultPageIndicator: UIPageControl, LanternPlug {
     
     /// 页码与底部的距离
     open lazy var bottomPadding: CGFloat = {
@@ -22,6 +22,17 @@ open class LanternDefaultPageIndicator: UIPageControl, LanternPageIndicator {
     
     open func setup(with lantern: Lantern) {
         isEnabled = false
+        
+        if superview != lantern.view {
+            removeFromSuperview()
+            
+            lantern.view.addSubview(self)
+            translatesAutoresizingMaskIntoConstraints = false
+            if #available(iOS 9.0, *) {
+                centerXAnchor.constraint(equalTo: lantern.view.centerXAnchor).isActive = true
+                bottomAnchor.constraint(equalTo: lantern.view.bottomAnchor, constant: -bottomPadding).isActive = true
+            }
+        }
     }
     
     open func reloadData(numberOfItems: Int, pageIndex: Int) {
@@ -29,10 +40,6 @@ open class LanternDefaultPageIndicator: UIPageControl, LanternPageIndicator {
         currentPage = min(pageIndex, numberOfPages - 1)
         sizeToFit()
         isHidden = numberOfPages <= 1
-        if let view = superview {
-            center.x = view.bounds.width / 2
-            frame.origin.y = view.bounds.maxY - bottomPadding - bounds.height
-        }
     }
     
     open func didChanged(pageIndex: Int) {

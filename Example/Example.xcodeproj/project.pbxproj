@@ -15,6 +15,8 @@
 		2DB2CD06250A191D00B0E92F /* CustomAnimatedTranstioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */; };
 		2DCC16D32857375F00291111 /* LongImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCC16D22857375E00291111 /* LongImageViewController.swift */; };
 		2DCC16D528573D3D00291111 /* LongPhotos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DCC16D428573D3D00291111 /* LongPhotos.plist */; };
+		333B196E28E9959B00B61856 /* PlugsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B196D28E9959B00B61856 /* PlugsViewController.swift */; };
+		333B197028E995C400B61856 /* LanternPlugCloseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B196F28E995C400B61856 /* LanternPlugCloseItem.swift */; };
 		940855D523A372830035DE67 /* video_2.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D223A372820035DE67 /* video_2.MP4 */; };
 		940855D623A372830035DE67 /* video_1.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D323A372830035DE67 /* video_1.MP4 */; };
 		940855D723A372830035DE67 /* video_0.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 940855D423A372830035DE67 /* video_0.MP4 */; };
@@ -59,6 +61,8 @@
 		2DB2CD05250A191D00B0E92F /* CustomAnimatedTranstioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimatedTranstioning.swift; sourceTree = "<group>"; };
 		2DCC16D22857375E00291111 /* LongImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongImageViewController.swift; sourceTree = "<group>"; };
 		2DCC16D428573D3D00291111 /* LongPhotos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LongPhotos.plist; sourceTree = "<group>"; };
+		333B196D28E9959B00B61856 /* PlugsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugsViewController.swift; sourceTree = "<group>"; };
+		333B196F28E995C400B61856 /* LanternPlugCloseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanternPlugCloseItem.swift; sourceTree = "<group>"; };
 		940855D223A372820035DE67 /* video_2.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_2.MP4; sourceTree = "<group>"; };
 		940855D323A372830035DE67 /* video_1.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_1.MP4; sourceTree = "<group>"; };
 		940855D423A372830035DE67 /* video_0.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = video_0.MP4; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				9408566623A395720035DE67 /* VerticalBrowseViewController.swift */,
 				9459A76923A75A3700521385 /* DefaultPageIndicatorViewController.swift */,
 				9459A76B23A75E3900521385 /* NumberPageIndicatorViewController.swift */,
+				333B196D28E9959B00B61856 /* PlugsViewController.swift */,
+				333B196F28E995C400B61856 /* LanternPlugCloseItem.swift */,
 				940B2960238D128200DC5F6F /* ResourceModel.swift */,
 				2D1496EF260DD7FD000B70EE /* NameSpaceWrapper.swift */,
 				2D1496F2260DD840000B70EE /* UITableViewExtension.swift */,
@@ -327,6 +333,7 @@
 				940B2967238D128200DC5F6F /* LocalImageViewController.swift in Sources */,
 				940B28B2238CD68900DC5F6F /* SceneDelegate.swift in Sources */,
 				940B2984238FC4FD00DC5F6F /* DataSourceDeleteViewController.swift in Sources */,
+				333B197028E995C400B61856 /* LanternPlugCloseItem.swift in Sources */,
 				940B2958238D125C00DC5F6F /* HomeViewController.swift in Sources */,
 				2D1496FC260DDE79000B70EE /* CustomViewController.swift in Sources */,
 				9459A76C23A75E3900521385 /* NumberPageIndicatorViewController.swift in Sources */,
@@ -341,6 +348,7 @@
 				940B2963238D128200DC5F6F /* BaseCollectionViewCell.swift in Sources */,
 				2D1496F3260DD840000B70EE /* UITableViewExtension.swift in Sources */,
 				2DB2CD06250A191D00B0E92F /* CustomAnimatedTranstioning.swift in Sources */,
+				333B196E28E9959B00B61856 /* PlugsViewController.swift in Sources */,
 				949C25D42390FB4C00CD654B /* DataSourceAppendViewController.swift in Sources */,
 				94A02D4023992669007E5DCE /* LanternProgressView.swift in Sources */,
 				940B297E238FA9C800DC5F6F /* LocalImageSmoothZoomViewController.swift in Sources */,

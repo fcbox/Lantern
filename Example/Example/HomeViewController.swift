@@ -51,7 +51,8 @@ class HomeViewController: UITableViewController {
             DefaultPageIndicatorViewController(),
             NumberPageIndicatorViewController(),
             VerticalBrowseViewController(),
-            VideoPhotoViewController()
+            VideoPhotoViewController(),
+            PlugsViewController()
         ]
     }
     

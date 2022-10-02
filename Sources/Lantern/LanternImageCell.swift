@@ -249,7 +249,9 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
             imageView.frame = result.frame
             lantern?.maskView.alpha = result.scale * result.scale
             lantern?.setStatusBar(hidden: result.scale > 0.99)
-            lantern?.pageIndicator?.isHidden = result.scale < 0.99
+            lantern?.plugItems?.forEach({ plug in
+                plug.hidePlug(hidden: result.scale < 0.99, animated: false)
+            })
         case .ended, .cancelled:
             imageView.frame = panResult(pan).frame
             let isDown = pan.velocity(in: self).y > 0
@@ -258,7 +260,9 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
             } else {
                 lantern?.maskView.alpha = 1.0
                 lantern?.setStatusBar(hidden: true)
-                lantern?.pageIndicator?.isHidden = false
+                lantern?.plugItems?.forEach({ plug in
+                    plug.hidePlug(hidden: false, animated: false)
+                })
                 resetImageViewPosition()
             }
         default:

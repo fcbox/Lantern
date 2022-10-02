@@ -1,20 +1,21 @@
 //
-//  DefaultPageIndicatorViewController.swift
+//  PlugsViewController.swift
 //  Example
 //
-//  Created by JiongXing on 2019/12/16.
-//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd All rights reserved.
+//  Created by sky on 2021/12/16.
+//  Copyright © 2021 Shenzhen Hive Box Technology Co.,Ltd. All rights reserved.
 //
 
 import UIKit
 import Lantern
-import SDWebImage
 
-class DefaultPageIndicatorViewController: BaseCollectionViewController {
+private let reuseIdentifier = "Cell"
+
+class PlugsViewController: BaseCollectionViewController {
     
-    override var name: String { "UIPageControl样式的页码指示器" }
+    override var name: String { "插件" }
     
-    override var remark: String { "举例如何使用UIPageControl样式的页码指示器" }
+    override var remark: String { "举例如何使用plug" }
     
     override func makeDataSource() -> [ResourceModel] {
         makeNetworkDataSource()
@@ -31,8 +32,8 @@ class DefaultPageIndicatorViewController: BaseCollectionViewController {
     
     override func openLantern(with collectionView: UICollectionView, indexPath: IndexPath) {
         let lantern = Lantern()
-        lantern.numberOfItems = {[weak self] in
-            self?.dataSource.count ?? 0
+        lantern.numberOfItems = {
+            self.dataSource.count
         }
         lantern.reloadCellAtIndex = { context in
             let url = self.dataSource[context.index].secondLevelUrl.flatMap { URL(string: $0) }
@@ -50,8 +51,8 @@ class DefaultPageIndicatorViewController: BaseCollectionViewController {
             let cell = collectionView.cellForItem(at: path) as? BaseCollectionViewCell
             return cell?.imageView
         })
-        // UIPageIndicator样式的页码指示器
-        lantern.plugItems = [LanternDefaultPageIndicator()]
+        // 数字样式的页码指示器
+        lantern.plugItems = [LanternDefaultPageIndicator(),LanternPlugCloseItem()]
         lantern.pageIndex = indexPath.item
         lantern.show()
     }

@@ -97,8 +97,8 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     /// 主视图
     open lazy var browserView = LanternView()
     
-    /// 页码指示
-    open var pageIndicator: LanternPageIndicator?
+    // 扩展插件
+    open var plugItems: [LanternPlug]?
     
     /// 背景蒙版
     open lazy var maskView: UIView = {
@@ -140,7 +140,10 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
             return
         }
         browserView.reloadData()
-        pageIndicator?.reloadData(numberOfItems: numberOfItems(), pageIndex: pageIndex)
+        
+        plugItems?.forEach({ plug in
+            plug.reloadData(numberOfItems: numberOfItems(), pageIndex: pageIndex)
+        })
     }
     
     open override func viewDidLoad() {
@@ -158,7 +161,9 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
         
         browserView.didChangedPageIndex = { [weak self] index in
             guard let `self` = self else { return }
-            self.pageIndicator?.didChanged(pageIndex: index)
+            self.plugItems?.forEach({ plug in
+                plug.didChanged(pageIndex: index)
+            })
             self.didChangedPageIndex(index)
         }
         
@@ -170,7 +175,9 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
         super.viewWillLayoutSubviews()
         maskView.frame = view.bounds
         browserView.frame = view.bounds
-        pageIndicator?.reloadData(numberOfItems: numberOfItems(), pageIndex: pageIndex)
+        plugItems?.forEach({ plug in
+            plug.reloadData(numberOfItems: numberOfItems(), pageIndex: pageIndex)
+        })
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -181,10 +188,7 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.delegate = previousNavigationControllerDelegate
-        if let indicator = pageIndicator {
-            view.addSubview(indicator)
-            indicator.setup(with: self)
-        }
+        setupPlugs()
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
@@ -195,6 +199,22 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         browserView.isRotating = true
+    }
+    
+    //
+    // MARK: - Plug
+    //
+    
+    private func setupPlugs() {
+        plugItems?.forEach({ plug in
+            plug.setup(with: self)
+        })
+    }
+    
+    private func removePlugs() {
+        plugItems?.forEach({ plug in
+            plug.removeFromLantern()
+        })
     }
     
     //
@@ -274,7 +294,7 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     /// 关闭PhotoBrowser
     open func dismiss() {
         setStatusBar(hidden: false)
-        pageIndicator?.removeFromSuperview()
+        removePlugs()
         if presentingViewController != nil {
             self.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
