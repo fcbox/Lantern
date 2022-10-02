@@ -13,6 +13,10 @@ public protocol LanternPlug {
     
     // optional
         
+    var isPlugHidden: Bool { get }
+    
+    var ignoreToggle: Bool { get }
+    
     func reloadData(numberOfItems: Int, pageIndex: Int)
     
     func didChanged(pageIndex: Int)
@@ -23,7 +27,14 @@ public protocol LanternPlug {
 }
 
 extension LanternPlug {
-
+    public var isPlugHidden: Bool {
+        get { false }
+    }
+    
+    public var ignoreToggle: Bool {
+        get { false }
+    }
+    
     public func reloadData(numberOfItems: Int, pageIndex: Int) {
         debugPrint("defalut plug reloadData")
     }
@@ -42,6 +53,26 @@ extension LanternPlug {
 }
 
 extension LanternPlug where Self: UIView {
+    public var isPlugHidden: Bool {
+        get { isHidden }
+    }
+    
+    public func hidePlug(hidden: Bool, animated: Bool = true) {
+        if animated {
+            isHidden = hidden
+        } else {
+            UIView.animate(withDuration: 0.15) {
+                let targetAlpha: CGFloat = hidden ? 0.0 : 1.0
+
+                self.alpha = targetAlpha
+            } completion: { success in
+                if success {
+                    self.isHidden = hidden
+                }
+            }
+        }
+    }
+    
     public func removeFromLantern() {
         removeFromSuperview()
     }

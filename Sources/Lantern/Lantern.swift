@@ -97,6 +97,8 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     /// 主视图
     open lazy var browserView = LanternView()
     
+    public var enableSingleTapDismiss: Bool = true
+    
     // 扩展插件
     open var plugItems: [LanternPlug]?
     
@@ -214,6 +216,17 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     private func removePlugs() {
         plugItems?.forEach({ plug in
             plug.removeFromLantern()
+        })
+    }
+    
+    func togglePlugs() {
+        guard let count = plugItems?.count, count > 0 else { return  }
+        
+        plugItems?.forEach({ plug in
+            if !plug.ignoreToggle {
+                var isPlugHidden = plug.isPlugHidden
+                plug.hidePlug(hidden: !isPlugHidden, animated: true)
+            }
         })
     }
     
