@@ -203,7 +203,11 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
     
     /// 单击
     @objc open func onSingleTap(_ tap: UITapGestureRecognizer) {
-        lantern?.dismiss()
+        if lantern?.tapStyle == .dismiss {
+            lantern?.dismiss()
+        } else {
+            lantern?.isMenuHidden.toggle()
+        }
     }
     
     /// 双击
@@ -247,9 +251,12 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         case .changed:
             let result = panResult(pan)
             imageView.frame = result.frame
-            lantern?.maskView.alpha = result.scale * result.scale
-            lantern?.setStatusBar(hidden: result.scale > 0.99)
-            lantern?.pageIndicator?.isHidden = result.scale < 0.99
+            let alpha = result.scale * result.scale
+            guard let lantern else { return }
+            lantern.maskView.alpha = alpha
+            lantern.maskAlphaChaged(lantern, alpha)
+            lantern.setStatusBar(hidden: result.scale > 0.99)
+            lantern.pageIndicator?.isHidden = result.scale < 0.99
         case .ended, .cancelled:
             imageView.frame = panResult(pan).frame
             let isDown = pan.velocity(in: self).y > 0
@@ -260,6 +267,9 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
                 lantern?.setStatusBar(hidden: true)
                 lantern?.pageIndicator?.isHidden = false
                 resetImageViewPosition()
+                if let lantern = lantern {
+                    lantern.maskAlphaChaged(lantern, alpha)
+                }
             }
         default:
             resetImageViewPosition()
