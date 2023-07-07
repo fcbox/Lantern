@@ -15,7 +15,7 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Lantern"
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         tableView.fc.registerCell(HomeTableViewCell.self)
         
@@ -38,6 +38,7 @@ class HomeViewController: UITableViewController {
             LocalImageZoomViewController(),
             LocalImageSmoothZoomViewController(),
             CustomViewController(),
+            LivePhotoViewController(),
             KingfisherImageViewController(),
             SDWebImageViewController(),
             LongImageViewController(),

@@ -40,8 +40,10 @@ class BaseCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
         navigationItem.title = name
-        collectionView?.backgroundColor = .black
+        collectionView?.backgroundColor = .white
         collectionView?.fc.registerCell(BaseCollectionViewCell.self)
         dataSource = makeDataSource()
     }

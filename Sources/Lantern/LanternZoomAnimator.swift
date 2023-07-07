@@ -141,7 +141,5 @@ open class LanternZoomAnimator: NSObject, LanternAnimatedTransitioning {
             return nil
         }
         return (snap1, snap2, thumbnailFrame, destinationFrame)
-    }
-    
-    
+    } 
 }

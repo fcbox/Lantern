@@ -10,6 +10,10 @@ import Foundation
 
 /// 视像资源模型
 class ResourceModel {
+    /// 实况图
+    var livePhotoUrl: String?
+    /// 实况图mov
+    var liveMovUrl: String?
     /// 第一级资源
     var firstLevelUrl: String?
     /// 第二级资源

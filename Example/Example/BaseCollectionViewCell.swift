@@ -15,6 +15,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
         iv.contentMode = .scaleAspectFill
         return iv
     }()
+    
     lazy var playButtonView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -22,10 +23,25 @@ class BaseCollectionViewCell: UICollectionViewCell {
         iv.isHidden = true
         return iv
     }()
+    
+    lazy var livePhotoView: UIImageView = {
+        let iv = UIImageView()
+        iv.isHidden = true
+        return iv
+    }()
+    
+    var livePhotoBadgeImage: UIImage! {
+        didSet {
+            livePhotoView.isHidden = false
+            livePhotoView.image = livePhotoBadgeImage
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         contentView.addSubview(playButtonView)
+        contentView.addSubview(livePhotoView)
     }
     
     override func layoutSubviews() {
@@ -33,6 +49,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
         imageView.frame = contentView.bounds
         playButtonView.frame.origin = contentView.center
         playButtonView.frame = CGRect.init(x: contentView.frame.width/2-25, y: contentView.frame.height/2-25, width: 50, height: 50)
+        livePhotoView.frame = CGRect.init(x: contentView.frame.width - 50, y: contentView.frame.height - 50, width: 40, height: 40)
     }
     
     required init?(coder aDecoder: NSCoder) {
