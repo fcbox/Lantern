@@ -66,14 +66,9 @@ class LivePhotoImageCell: LanternImageCell {
         return CGSize(width: imageView.bounds.width * scale, height: imageView.bounds.height * scale)
     }
     override func setup() {
-        super.setup()
-        imageView.addSubview(livePhotoView)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
         imageView.isUserInteractionEnabled = true
-        livePhotoView.frame = self.imageView.bounds
+        contentView = livePhotoView
+        super.setup()
     }
     
     func reloadData(placeholder: UIImage?, urlString: String?) {
@@ -91,6 +86,5 @@ class LivePhotoImageCell: LanternImageCell {
                     self.livePhotoView.livePhoto = livePhoto
                     self.livePhotoView.startPlayback(with: .hint)
                 })
-        
     }
 }

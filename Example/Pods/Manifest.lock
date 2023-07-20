@@ -2,7 +2,7 @@ PODS:
   - Kingfisher (5.12.0):
     - Kingfisher/Core (= 5.12.0)
   - Kingfisher/Core (5.12.0)
-  - Lantern (0.1.0)
+  - Lantern (1.1.4)
   - SDWebImage (5.4.0):
     - SDWebImage/Core (= 5.4.0)
   - SDWebImage/Core (5.4.0)
@@ -23,9 +23,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
-  Lantern: abc9a856b6237b334b4cbf4e83f65feed26b8247
+  Lantern: 26ed71b2d9ace5073ecf53521e316ed8b95acdb0
   SDWebImage: 5bf6aec6481ae2a062bdc59f9d6c1d1e552090e0
 
-PODFILE CHECKSUM: c7e50610eca4d1da2df77902213f8e4a4be5357d
+PODFILE CHECKSUM: ba7118bc2f4d592b9018e4594888e8cb0bf30f5c
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.11.3

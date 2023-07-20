@@ -37,7 +37,6 @@ class NumberPageIndicatorViewController: BaseCollectionViewController {
         lantern.reloadCellAtIndex = { context in
             let url = self.dataSource[context.index].secondLevelUrl.flatMap { URL(string: $0) }
             let lanternCell = context.cell as? LanternImageCell
-            lanternCell?.index = context.index
             let collectionPath = IndexPath(item: context.index, section: indexPath.section)
             let collectionCell = collectionView.cellForItem(at: collectionPath) as? BaseCollectionViewCell
             let placeholder = collectionCell?.imageView.image

@@ -16,6 +16,8 @@ class VideoPhotoViewController: BaseCollectionViewController {
     
     override var remark: String { "微信我的相册浏览方式" }
     
+    let videoUrl = "https://vd2.bdstatic.com/mda-pcdktpwdmxw5vk0n/cae_h264/1678805071714276645/mda-pcdktpwdmxw5vk0n.mp4?abtest=peav_l52&appver=&auth_key=1680752204-0-0-dca00fd02bcb2a9797dbb24c00fccb06&bcevod_channel=searchbox_feed&cd=0&cr=0&did=cfcd208495d565ef66e7dff9f98764da&logid=404179787&model=&osver=&pd=1&pt=4&sl=426&sle=1&split=386564&vid=2482905209255354956&vt=1"
+    let videoImage = "http://wx3.sinaimg.cn/thumbnail/bfc243a3gy1febm7usmc8j20i543zngx.jpg"
     override func makeDataSource() -> [ResourceModel] {
         var result: [ResourceModel] = []
         (0..<6).forEach { index in
@@ -42,36 +44,33 @@ class VideoPhotoViewController: BaseCollectionViewController {
     
     override func openLantern(with collectionView: UICollectionView, indexPath: IndexPath) {
         let lantern = Lantern()
+        lantern.pageIndex = indexPath.item
         lantern.numberOfItems = {[weak self] in
             self?.dataSource.count ?? 0
         }
         lantern.cellClassAtIndex = { index in
-            index % 2 == 0 ? VideoZoomCell.self : LanternImageCell.self
+            LanternPhotoVideoCell.self
         }
         lantern.reloadCellAtIndex = { context in
             LanternLog.high("reload cell!")
-            let resourceName = self.dataSource[context.index].localName!
-            if context.index % 2 == 0 {
-                let lanternCell = context.cell as? VideoZoomCell
-                if let url = Bundle.main.url(forResource: resourceName, withExtension: "MP4") {
-                    lanternCell?.imageView.image = self.getVideoCropPicture(videoUrl: url)
-                    lanternCell?.player.replaceCurrentItem(with: AVPlayerItem(url: url))
+            let lanternCell = context.cell as? LanternPhotoVideoCell
+            if let url = Bundle.main.url(forResource: self.dataSource[context.index].localName, withExtension: "MP4") {
+                lanternCell?.imageView.image = self.getVideoCropPicture(videoUrl: url)
+                lanternCell?.isVideo = false
+                lanternCell?.refreshPlayer()
+                if context.currentIndex == context.index {
+                    lanternCell?.showPlayer(url: url)
                 }
             } else {
-                let lanternCell = context.cell as? LanternImageCell
-                lanternCell?.imageView.image = UIImage(named: resourceName)
+                lanternCell?.isVideo = false
+                lanternCell?.imageView.image = self.dataSource[context.index].localName.flatMap { UIImage(named: $0) }
             }
         }
-        lantern.cellWillAppear = { cell, index in
-            if index % 2 == 0 {
-                LanternLog.high("开始播放")
-                (cell as? VideoZoomCell)?.player.play()
-            }
-        }
+        
         lantern.cellWillDisappear = { cell, index in
             if index % 2 == 0 {
                 LanternLog.high("暂停播放")
-                (cell as? VideoZoomCell)?.player.pause()
+                (cell as? LanternPhotoVideoCell)?.player.pause()
             }
         }
         lantern.transitionAnimator = LanternZoomAnimator(previousView: { index -> UIView? in
@@ -79,7 +78,6 @@ class VideoPhotoViewController: BaseCollectionViewController {
             let cell = collectionView.cellForItem(at: path) as? BaseCollectionViewCell
             return cell?.imageView
         })
-        lantern.pageIndex = indexPath.item
         lantern.show()
     }
     // MARK: 获取视频预览图

@@ -50,11 +50,11 @@ class BaseCollectionViewController: UICollectionViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let insetValue: CGFloat = 15
+        let insetValue: CGFloat = 5
         let totalWidth: CGFloat = view.bounds.width - insetValue * 2
         let colCount = 2
-        let spacing: CGFloat = 8.0
-        let sideLength: CGFloat = (totalWidth - 2 * spacing) / CGFloat(colCount)
+        let spacing: CGFloat = 5
+        let sideLength: CGFloat = (totalWidth - spacing) / CGFloat(colCount)
         
         flowLayout.minimumLineSpacing = spacing
         flowLayout.minimumInteritemSpacing = spacing

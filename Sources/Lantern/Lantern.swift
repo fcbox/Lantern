@@ -94,6 +94,9 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
         get { browserView.cellDidAppear }
     }
     
+    /// lantern视图消失Dismiss
+    open var lanternDismiss: ((LanternCell, Int) -> Void)?
+    
     /// 主视图
     open lazy var browserView = LanternView()
     
@@ -111,7 +114,6 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     
     deinit {
         LanternLog.high("deinit - \(self.classForCoder)")
-        navigationController?.delegate = previousNavigationControllerDelegate
     }
     
     /// 显示图片浏览器
@@ -189,7 +191,11 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        navigationController?.delegate = previousNavigationControllerDelegate
         hideNavigationBar(false)
+        if let cell = browserView.visibleCells[pageIndex] {
+            self.lanternDismiss?(cell, self.pageIndex)
+        }
     }
     
     open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

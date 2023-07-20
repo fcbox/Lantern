@@ -9,11 +9,24 @@
 import UIKit
 
 open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate, LanternCell, LanternZoomSupportedCell {
-    
     /// 弱引用PhotoBrowser
     open weak var lantern: Lantern?
     
+    /// 长按删除时标记视图的坐标
     open var index: Int = 0
+    
+    /// 是否是视频
+    open var isVideo: Bool = false {
+        didSet {
+            contentView?.isHidden = true
+            if self.isVideo, let view = self.contentView {
+                view.isHidden = false
+            }
+        }
+    }
+    
+    /// 添加到imageView上的视图
+    open var contentView: UIView?
     
     open var scrollDirection: Lantern.ScrollDirection = .horizontal {
         didSet {
@@ -27,6 +40,7 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
     
     open lazy var imageView: UIImageView = {
         let view = UIImageView()
+        view.backgroundColor = .black
         view.clipsToBounds = true
         return view
     }()
@@ -65,11 +79,19 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         return cell
     }
     
+    /// 刷新添加视图的布局
+    open func refreshContentView() {
+        contentView?.frame = self.imageView.bounds
+    }
+    
     /// 子类可重写，创建子视图。完全自定义时不必调super。
     open func constructSubviews() {
         scrollView.delegate = self
         addSubview(scrollView)
         scrollView.addSubview(imageView)
+        if let view = self.contentView {
+            imageView.addSubview(view)
+        }
         // 使用 kvo 监控 imageView 的 image 的变化
         imageView.addObserver(self,
                               forKeyPath: "image",
@@ -95,7 +117,16 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         addGestureRecognizer(singleTap)
     }
     
-    // 长按事件
+    /// 播放视频
+    open var playAction: ((LanternImageCell) -> Void)?
+    
+    /// 暂停播放视频
+    open var pauseAction: ((LanternImageCell) -> Void)?
+    
+    /// 停止视频
+    open var stopAction: ((LanternImageCell) -> Void)?
+    
+    /// 长按事件
     public typealias LongPressAction = (LanternImageCell, UILongPressGestureRecognizer) -> Void
     
     /// 长按时回调。赋值时自动添加手势，赋值为nil时移除手势
@@ -136,6 +167,7 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         let origin = computeImageLayoutOrigin(for: size, in: scrollView)
         imageView.frame = CGRect(origin: origin, size: size)
         scrollView.setZoomScale(1.0, animated: false)
+        refreshContentView()
     }
     
     open func viewForZooming(in scrollView: UIScrollView) -> UIView? {
@@ -148,7 +180,7 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
     
     open func computeImageLayoutSize(for image: UIImage?, in scrollView: UIScrollView) -> CGSize {
         guard let imageSize = image?.size, imageSize.width > 0 && imageSize.height > 0 else {
-            return .zero
+            return bounds.size
         }
         var width: CGFloat
         var height: CGFloat
@@ -247,14 +279,19 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         case .changed:
             let result = panResult(pan)
             imageView.frame = result.frame
+            refreshContentView()
             lantern?.maskView.alpha = result.scale * result.scale
             lantern?.setStatusBar(hidden: result.scale > 0.99)
             lantern?.pageIndicator?.isHidden = result.scale < 0.99
+            self.pauseAction?(self)
         case .ended, .cancelled:
             imageView.frame = panResult(pan).frame
+            refreshContentView()
+            self.playAction?(self)
             let isDown = pan.velocity(in: self).y > 0
             if isDown {
                 lantern?.dismiss()
+                self.stopAction?(self)
             } else {
                 lantern?.maskView.alpha = 1.0
                 lantern?.setStatusBar(hidden: true)
@@ -301,6 +338,7 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
             if needResetSize {
                 self.imageView.bounds.size = size
             }
+            self.refreshContentView()
         }
     }
     
