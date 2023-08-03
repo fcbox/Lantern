@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		133EACD00DADE8C44873464AF74FF291 /* LanternView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D1B1F5F041252F0B5EB29A1E9B2F7E /* LanternView.swift */; };
 		1AAF8CE42F64888AF212246D88FDB184 /* LanternLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7416D4C6A7C94FCE6F84EBD99A8424B /* LanternLog.swift */; };
-		2D1BF26D2A69071200D516B5 /* LanternVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BF26C2A69071200D516B5 /* LanternVideoPlayer.swift */; };
-		2D1BF26F2A6907BC00D516B5 /* LanternPhotoVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BF26E2A6907BC00D516B5 /* LanternPhotoVideoCell.swift */; };
+		2D2B37DE2A7B5A9700EE26A8 /* LanternVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B37DD2A7B5A9700EE26A8 /* LanternVideoPlayer.swift */; };
+		2D2B37E02A7B5A9E00EE26A8 /* LanternPhotoVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B37DF2A7B5A9E00EE26A8 /* LanternPhotoVideoCell.swift */; };
 		35A0F9B3A13507DB71E5F941384F7151 /* Lantern-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DD5494BE8DF8B308241D9979D5C9E6 /* Lantern-dummy.m */; };
 		3C1336642D3BEA78CE51AF378816A35B /* LanternPageIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75F950D7BDC8CE032FF3F5D80FEBBB0 /* LanternPageIndicator.swift */; };
 		3DA703DA09982AC430D721D66BA2D79E /* Lantern.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7B9458D45ECC18147024C7F5996F70 /* Lantern.swift */; };
@@ -33,8 +33,8 @@
 		11DA7604543D031D18AD5B61A797BF1B /* Lantern */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Lantern; path = Lantern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D19A06BEEDFF04871DC223E6B8EC337 /* Lantern-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Lantern-prefix.pch"; sourceTree = "<group>"; };
 		1F369B156435BC5C85EC5DF58A0964CD /* LanternZoomSupportedCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LanternZoomSupportedCell.swift; path = Sources/Lantern/LanternZoomSupportedCell.swift; sourceTree = "<group>"; };
-		2D1BF26C2A69071200D516B5 /* LanternVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanternVideoPlayer.swift; sourceTree = "<group>"; };
-		2D1BF26E2A6907BC00D516B5 /* LanternPhotoVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanternPhotoVideoCell.swift; sourceTree = "<group>"; };
+		2D2B37DD2A7B5A9700EE26A8 /* LanternVideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LanternVideoPlayer.swift; path = Sources/Lantern/LanternVideoPlayer.swift; sourceTree = "<group>"; };
+		2D2B37DF2A7B5A9E00EE26A8 /* LanternPhotoVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LanternPhotoVideoCell.swift; path = Sources/Lantern/LanternPhotoVideoCell.swift; sourceTree = "<group>"; };
 		2DE63892D6E3CB6379B071776D3A1B9B /* Lantern.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Lantern.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		2FC445F0A007AB94F62426DCBF5FD10E /* LanternCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LanternCell.swift; path = Sources/Lantern/LanternCell.swift; sourceTree = "<group>"; };
 		31830FC0F778938D2B5694F2E96A948B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -95,13 +95,13 @@
 				E632A7EE0E255C95B217EA8BE7D16E8B /* LanternDefaultPageIndicator.swift */,
 				6DD71C12FEBC9550D1B50F15A1E2C86A /* LanternFadeAnimator.swift */,
 				07EA1A87A75E9B8E16C3287E15450DF3 /* LanternImageCell.swift */,
-				2D1BF26E2A6907BC00D516B5 /* LanternPhotoVideoCell.swift */,
-				2D1BF26C2A69071200D516B5 /* LanternVideoPlayer.swift */,
 				B7416D4C6A7C94FCE6F84EBD99A8424B /* LanternLog.swift */,
 				C753AC27AFCBF7B01CA5E8C56756674D /* LanternNoneAnimator.swift */,
 				BA3EE84AEE27E3879A2F34AE166AD7D4 /* LanternNumberPageIndicator.swift */,
 				F75F950D7BDC8CE032FF3F5D80FEBBB0 /* LanternPageIndicator.swift */,
 				DD40A8714DC80A0E8C6104D6FD0269C1 /* LanternSmoothZoomAnimator.swift */,
+				2D2B37DF2A7B5A9E00EE26A8 /* LanternPhotoVideoCell.swift */,
+				2D2B37DD2A7B5A9700EE26A8 /* LanternVideoPlayer.swift */,
 				D3D1B1F5F041252F0B5EB29A1E9B2F7E /* LanternView.swift */,
 				9799146B9BBB6F5941EB4769105BCF25 /* LanternZoomAnimator.swift */,
 				1F369B156435BC5C85EC5DF58A0964CD /* LanternZoomSupportedCell.swift */,
@@ -193,8 +193,8 @@
 		11EFD98E99430BE52B83A7DFBBACB368 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 			};
 			buildConfigurationList = 6B1F8A1FFABF421EA4819B780A62E82C /* Build configuration list for PBXProject "Lantern" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -240,8 +240,8 @@
 				E839DD0812E40F68B07339B5AAA580F0 /* LanternNoneAnimator.swift in Sources */,
 				F216953533CBA3BD41B478C3308E2FEF /* LanternNumberPageIndicator.swift in Sources */,
 				3C1336642D3BEA78CE51AF378816A35B /* LanternPageIndicator.swift in Sources */,
-				2D1BF26F2A6907BC00D516B5 /* LanternPhotoVideoCell.swift in Sources */,
-				2D1BF26D2A69071200D516B5 /* LanternVideoPlayer.swift in Sources */,
+				2D2B37E02A7B5A9E00EE26A8 /* LanternPhotoVideoCell.swift in Sources */,
+				2D2B37DE2A7B5A9700EE26A8 /* LanternVideoPlayer.swift in Sources */,
 				F9632458B43F28CE0B4B22E65EAC6E15 /* LanternSmoothZoomAnimator.swift in Sources */,
 				133EACD00DADE8C44873464AF74FF291 /* LanternView.swift in Sources */,
 				C187D2698C68E9923B4A98AD5BF6D57A /* LanternZoomAnimator.swift in Sources */,
@@ -329,7 +329,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Lantern/Lantern-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Lantern/Lantern-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,7 +364,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Lantern/Lantern-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Lantern/Lantern-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
