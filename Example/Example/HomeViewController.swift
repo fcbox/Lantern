@@ -12,7 +12,7 @@ import Lantern
 class HomeViewController: UITableViewController {
     
     var dataSource: [[BaseCollectionViewController]] = [[]]
-    let section = ["动画转场效果", "网络图片实况图片场景", "不同的若干使用场景", "视频图片混合"]
+    let section = ["动画转场效果", "网络图片实况图片场景", "视频图片混合", "不同的若干使用场景"]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView = UITableView(frame: self.view.bounds, style: .grouped)

@@ -20,7 +20,7 @@ class VideoPhotoViewController: BaseCollectionViewController {
     let videoImage = "http://wx3.sinaimg.cn/thumbnail/bfc243a3gy1febm7usmc8j20i543zngx.jpg"
     override func makeDataSource() -> [ResourceModel] {
         var result: [ResourceModel] = []
-        (0..<6).forEach { index in
+        (0..<4).forEach { index in
             let model = ResourceModel()
             model.localName = index % 2 == 0 ? "video_\(index / 2)" : "local_\(index)"
             result.append(model)

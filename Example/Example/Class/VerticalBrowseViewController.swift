@@ -18,7 +18,7 @@ class VerticalBrowseViewController: BaseCollectionViewController {
     
     override func makeDataSource() -> [ResourceModel] {
         var result: [ResourceModel] = []
-        (0..<6).forEach { index in
+        (0..<4).forEach { index in
             let model = ResourceModel()
             model.localName = "video_\(index % 3)"
             result.append(model)
