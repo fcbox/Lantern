@@ -117,11 +117,11 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
         addGestureRecognizer(singleTap)
     }
     
-    /// 播放视频
-    open var playAction: ((LanternImageCell) -> Void)?
+    /// 拖拽改变视图scale
+    open var panGestureChangeAction: ((LanternImageCell, CGFloat) -> Void)?
     
-    /// 暂停播放视频
-    open var pauseAction: ((LanternImageCell) -> Void)?
+    /// 结束拖拽视图scale(true为视图消失，false为恢复)
+    open var panGestureEndAction: ((LanternImageCell, Bool) -> Void)?
     
     /// 停止视频
     open var stopAction: ((LanternImageCell) -> Void)?
@@ -283,15 +283,14 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
             lantern?.maskView.alpha = result.scale * result.scale
             lantern?.setStatusBar(hidden: result.scale > 0.99)
             lantern?.pageIndicator?.isHidden = result.scale < 0.99
-            self.pauseAction?(self)
+            self.panGestureChangeAction?(self, result.scale)
         case .ended, .cancelled:
             imageView.frame = panResult(pan).frame
             refreshContentView()
-            self.playAction?(self)
             let isDown = pan.velocity(in: self).y > 0
+            self.panGestureEndAction?(self, isDown)
             if isDown {
                 lantern?.dismiss()
-                self.stopAction?(self)
             } else {
                 lantern?.maskView.alpha = 1.0
                 lantern?.setStatusBar(hidden: true)

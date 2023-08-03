@@ -147,8 +147,11 @@ open class Lantern: UIViewController, UIViewControllerTransitioningDelegate, UIN
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
-        automaticallyAdjustsScrollViewInsets = false
+        if #available(iOS 11.0, *) {
+            self.browserView.scrollView.contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
         hideNavigationBar(true)
         
         browserView.lantern = self

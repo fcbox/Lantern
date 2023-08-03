@@ -20,14 +20,15 @@ open class LanternPhotoVideoCell: LanternImageCell {
     }
     
     open func refreshPlayer() {
-        self.playAction = { _ in
-            self.player.play()
+        self.panGestureEndAction = {[weak self] (_, isEnd) in
+            if isEnd {
+                self?.player.stop()
+            } else {
+                self?.player.play()
+            }
         }
-        self.pauseAction = { _ in
-            self.player.pause()
-        }
-        self.stopAction = { _ in
-            self.player.stop()
+        self.panGestureChangeAction = { [weak self] (_, _) in
+            self?.player.pause()
         }
     }
     
