@@ -123,9 +123,6 @@ open class LanternImageCell: UIView, UIScrollViewDelegate, UIGestureRecognizerDe
     /// 结束拖拽视图scale(true为视图消失，false为恢复)
     open var panGestureEndAction: ((LanternImageCell, Bool) -> Void)?
     
-    /// 停止视频
-    open var stopAction: ((LanternImageCell) -> Void)?
-    
     /// 长按事件
     public typealias LongPressAction = (LanternImageCell, UILongPressGestureRecognizer) -> Void
     
