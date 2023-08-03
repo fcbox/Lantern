@@ -11,14 +11,16 @@ import Lantern
 
 class HomeViewController: UITableViewController {
     
-    var dataSource: [BaseCollectionViewController] = []
-
+    var dataSource: [[BaseCollectionViewController]] = [[]]
+    let section = ["动画转场效果", "网络图片实况图片场景", "视频图片混合", "不同的若干使用场景"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView = UITableView(frame: self.view.bounds, style: .grouped)
+        self.title = "Lantern"
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = UIColor.lightGray
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         tableView.fc.registerCell(HomeTableViewCell.self)
-        
         // 授权网络数据访问
         guard let url = URL(string: "http://www.baidu.com") else  {
             return
@@ -33,15 +35,22 @@ class HomeViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataSource = [
+        dataSource = [[
             LocalImageViewController(),
             LocalImageZoomViewController(),
             LocalImageSmoothZoomViewController(),
-            CustomViewController(),
+            CustomViewController()],
+                      
+            [LivePhotoViewController(),
             KingfisherImageViewController(),
             SDWebImageViewController(),
             LongImageViewController(),
-            GIFViewController(),
+            GIFViewController()],
+                      
+            [VideoPhotoViewController(),
+            VerticalBrowseViewController()],
+                      
+            [StoreTextPageViewController(),
             DataSourceDeleteViewController(),
             DataSourceAppendViewController(),
             PushNextViewController(),
@@ -49,28 +58,45 @@ class HomeViewController: UITableViewController {
             MultipleCellViewController(),
             MultipleSectionViewController(),
             DefaultPageIndicatorViewController(),
-            NumberPageIndicatorViewController(),
-            VerticalBrowseViewController(),
-            VideoPhotoViewController()
-        ]
+            NumberPageIndicatorViewController()]]
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return section.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return dataSource[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.fc.dequeueReusableCell(HomeTableViewCell.self)
-        let vc = dataSource[indexPath.row]
+        let vc = dataSource[indexPath.section][indexPath.row]
         cell.textLabel?.text = vc.name
+        cell.textLabel?.font = .systemFont(ofSize: 15, weight: .medium)
         cell.detailTextLabel?.text = vc.remark
+        cell.detailTextLabel?.font = .systemFont(ofSize: 14, weight: .thin)
         cell.accessoryType = .disclosureIndicator
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.bounds.width, height: 40))
+        let lab = UILabel.init(frame: CGRect.init(x: 20, y: 10, width: self.view.bounds.width, height: 20))
+        lab.text = self.section[section]
+        lab.font = .systemFont(ofSize: 18, weight: .semibold)
+        lab.textColor = .black
+        view.addSubview(lab)
+        return view
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        navigationController?.pushViewController(dataSource[indexPath.row], animated: true)
+        navigationController?.pushViewController(dataSource[indexPath.section][indexPath.row], animated: true)
     }
 }
 
