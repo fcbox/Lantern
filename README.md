@@ -13,8 +13,8 @@ Lantern（花灯）是一个基于Swift的高可用视图框架。它基于iOS�
 ## 效果预览
 
 <div>
-	<img src="https://github.com/fcbox/Lantern/raw/master/Assets/Home.gif" width = "30%" div/>
-	<img src="https://github.com/fcbox/Lantern/raw/master/Assets/Show.gif" width = "30%" div/>
+	<img src="https://github.com/fcbox/Lantern/raw/master/Assets/Home.png" width = "30%" div/>
+	<img src="https://github.com/fcbox/Lantern/raw/master/Assets/Introduction.gif" width = "30%" div/>
 </div>
 
 ## 特性
