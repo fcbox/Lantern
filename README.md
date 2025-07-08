@@ -7,7 +7,7 @@ Lantern（花灯）是一个基于Swift的高可用视图框架。它基于iOS�
 
 经过我们一年多的试用和改进，现将Lantern面向社区开源，希望和大家一起改进App图片/视频浏览交互，提供更好的用户体验。
 
-本项目由丰巢研发团队开发维护，并基于[Apache-2.0协议](http://www.apache.org/licenses/LICENSE-2.0)开源的项目，源地址为：[https://github.com/JiongXing/PhotoBrowser](https://github.com/JiongXing/PhotoBrowser)。后续将逐步全面迁移到此处，敬请留意。
+本项目由丰巢研发团队开发维护，基于[Apache-2.0协议](http://www.apache.org/licenses/LICENSE-2.0)开源。
 
 
 ## 效果预览
