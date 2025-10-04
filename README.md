@@ -92,9 +92,9 @@ Lantern（花灯）是一个基于Swift的高可用视图框架。它基于iOS�
 
 ## 接入文档
 
-- [环境与安装](环境与安装.md)
-- [基础用法](基础用法.md)
-- [高级用法](高级用法.md)
+- [环境与安装](EnvironmentAndInstallation.md)
+- [基础用法](BasicUsage.md)
+- [高级用法](AdvancedUsage.md)
 
 ## 更新日志
 
